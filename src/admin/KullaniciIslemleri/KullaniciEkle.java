@@ -68,7 +68,7 @@ public class KullaniciEkle {
         System.out.println("Kullanici Islemleri Menusune Yonlendiriliyorunuz");
         for (int i = 3; i >= 1; i--) {
             System.out.print(i+" ");
-            Thread.sleep(1500);
+            Thread.sleep(500);
         }
 
         KullanıcıMenüsü.adminKullanıcıIslemleriMenusuMethodu();

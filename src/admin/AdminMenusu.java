@@ -3,6 +3,7 @@ package admin;
 import admin.KitapIslemleri.KitapMenusu;
 import admin.KullaniciIslemleri.KullanıcıMenüsü;
 import genel.Cıkıs;
+import genel.IlkGiris;
 
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class AdminMenusu {
     public static void adminMenusuMethodu() throws InterruptedException {
 
         System.out.println("***Admin Menüsü***");
-        System.out.println("1-Kullanıcı İşlemleri\n"+"2-Kitap İşlemleri\n"+"0-Çıkış");
+        System.out.println("1-Kullanıcı İşlemleri\n"+"2-Kitap İşlemleri\n"+"9-Üst Menü\n"+"0-Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
@@ -38,6 +39,10 @@ public class AdminMenusu {
                 break;
             case "0": Cıkıs.cikisMethodu();
                 break;
+            case "9":
+                IlkGiris.ilkGirisMethodu();
+                break;
+
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");
                 adminMenusuMethodu();

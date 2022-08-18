@@ -6,7 +6,7 @@ public class KitapConst {
     public String kitapAdi;
     public String kitapYazari;
     public String kitapTuru;
-public boolean alinaBilirMi = true;
+    public boolean alinaBilirMi;
     public KitapConst() {
 
     }
@@ -25,4 +25,6 @@ public boolean alinaBilirMi = true;
                 "\n" + kitapId + " " + kitapAdi + " " + kitapYazari + " " + kitapTuru;
 
     }
+
+
 }

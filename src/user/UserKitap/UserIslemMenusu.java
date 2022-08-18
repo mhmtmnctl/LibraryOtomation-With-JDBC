@@ -17,7 +17,7 @@ public class UserIslemMenusu {
     public static void userKitapIslemMenusuMethodu(){
 
         System.out.println("***Kitap İşlemleri Menüsü***");
-        System.out.println("1-Kitap Al\n"+"2-Kitap İade\n"+"3-Kitap Durumlarım"+"0-Çıkış");
+        System.out.println("1-Kitap Al\n"+"2-Kitap İade\n"+"3-Kitap Durumlarım\n"+"0-Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");

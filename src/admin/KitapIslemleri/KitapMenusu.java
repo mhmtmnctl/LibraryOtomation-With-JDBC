@@ -40,7 +40,7 @@ public class KitapMenusu {
                AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();
                 break;
             case "4":
-                AlinmisKitaplar.adminAlinmişKitaplarMethodu();
+                AlinmisKitaplar.adminAlinmisKitaplarMethodu();
                 break;
             case "9":
                 AdminMenusu.adminMenusuMethodu();

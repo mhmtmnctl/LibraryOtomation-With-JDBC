@@ -25,7 +25,7 @@ public class KitapEkle {
     public static String kitapAdi;
     public static String kitapYazari;
     public static String kitapTuru;
-    public static boolean alinaBilirMi;
+    public static boolean alinaBilirMi=true;
 
 
     public static void adminKitapEkleMethodu() throws InterruptedException {
