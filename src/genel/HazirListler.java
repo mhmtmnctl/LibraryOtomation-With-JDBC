@@ -45,6 +45,11 @@ public class HazirListler {
 
         kullaniciList.add(kullanici2);
 
+        KullaniciConst kullanici3 = new KullaniciConst(1,"Mehmet","Emin","@techpro",
+                "0001","0001",kullaniciPuan);
+
+        kullaniciList.add(kullanici3);
+
 
 
 
