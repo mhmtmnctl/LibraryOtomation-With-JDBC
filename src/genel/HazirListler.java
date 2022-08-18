@@ -45,6 +45,9 @@ public class HazirListler {
 
         kullaniciList.add(kullanici2);
 
+            /*
+            bu kisim ersin yokken yapildi
+             */
 
 
 
