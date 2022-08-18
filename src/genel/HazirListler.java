@@ -40,8 +40,8 @@ public class HazirListler {
         //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
 
         kullaniciList.add(kullanici);
-        KullaniciConst kullanici2 = new KullaniciConst(1,"Ersin","Akun","@yahoo",
-                "1071","0554",kullaniciPuan);
+        KullaniciConst kullanici2 = new KullaniciConst(1,"Ersin","Akun","@gmail",
+                "1111","1111",kullaniciPuan);
 
         kullaniciList.add(kullanici2);
 
