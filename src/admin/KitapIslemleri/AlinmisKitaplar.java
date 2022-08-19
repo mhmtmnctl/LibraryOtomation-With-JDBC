@@ -11,8 +11,6 @@ public class AlinmisKitaplar {
     /*
     alınmışKitaplar listini göster
     ////////////
-
-
     (1,java,ahmet,bilim,sezerID,tarih)
      */
     public static List<Object> alinmisKitapListesi = new ArrayList<>();
@@ -21,7 +19,7 @@ public class AlinmisKitaplar {
         //önce kullanıcının alması lazım
 
         for (KitapConst each:KitapEkle.kitapList) {
-            if (!KitapEkle.alinaBilirMi)
+            if (!each.alinaBilirMi)
             {
                 alinmisKitapListesi.add(each);
             }

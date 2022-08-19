@@ -1,6 +1,7 @@
 package user.UserKitap;
 
 import genel.Cıkıs;
+import user.UserIslemleri.UserLoginMenusu;
 
 import java.util.Scanner;
 
@@ -14,10 +15,10 @@ public class UserIslemMenusu {
 
      */
 
-    public static void userKitapIslemMenusuMethodu(){
+    public static void userKitapIslemMenusuMethodu() throws InterruptedException {
 
         System.out.println("***Kitap İşlemleri Menüsü***");
-        System.out.println("1-Kitap Al\n"+"2-Kitap İade\n"+"3-Kitap Durumlarım\n"+"0-Çıkış");
+        System.out.println("1-Kitap Al\n"+"2-Kitap İade\n"+"3-Kitap Durumlarım\n"+"Ust Menu"+"0-Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
@@ -30,6 +31,9 @@ public class UserIslemMenusu {
             case "2":KitapIade.userKitapIadeMethodu();
                 break;
             case "3": UserKitapDurumu.userKitapDurumuMethodu();
+                break;
+            case "9":
+                UserLoginMenusu.userLoginMenusuMethodu();
                 break;
             case "0": Cıkıs.cikisMethodu();
                 break;

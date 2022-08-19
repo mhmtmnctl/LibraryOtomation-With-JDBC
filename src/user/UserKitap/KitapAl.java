@@ -3,69 +3,65 @@ package user.UserKitap;
 import admin.KitapIslemleri.AlinabilirKitaplar;
 import admin.KitapIslemleri.AlinmisKitaplar;
 import admin.KitapIslemleri.KitapEkle;
-import admin.KullaniciIslemleri.KullaniciEkle;
 import genel.KitapConst;
-import genel.KullaniciConst;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class KitapAl {
-    /*
-    alınabilir kitapları listeleriz
-    buradan seçer.
-    seçtiğini alınmışKitaplar listine atcaz.
-    hangi kullanıcı aldıysa onun id sini ekleyelim.
-    ve aldığı kitabı alınabilirListesinden silcez.
 
-    dateTime almamız lazım. hangi tarihte aldıysa tutmamız lazım. biyerde tutmamız lazım
+    public static void userKitapAlMethodu() throws InterruptedException {
+        AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();
+       // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
+        System.out.println("Alabileceğiniz kitaplar aşağıdadır");
+        System.out.println(KitapEkle.kitapList);
+        System.out.println("İstediğiniz kitabın ID numarasının giriniz :");
+        Scanner scan = new Scanner(System.in);
+        int secim = scan.nextInt();
 
-    eğer iade etmediği bir kitap varsa kitap alamasın.
+        int indexDegeri = 0;
+        int alinacakKitap = 0;
 
-    (1,java,ahmet,bilim,sezerID)
-     */
-   public static void userKitapAlMethodu(){
+        for (KitapConst each : KitapEkle.kitapList) {
 
-       System.out.println("Alabileceğiniz kitaplar aşağıdadır");
-       System.out.println(KitapEkle.kitapList);
-       System.out.println("İstediğiniz kitabın ID numarasının giriniz :");
-       Scanner scan = new Scanner(System.in);
-       int secim = scan.nextInt();
+            if (each.kitapId == secim) {
+                alinacakKitap = indexDegeri;
+            }
+            indexDegeri++;
+        }
 
-       int indexDegeri = 0;
-       int alinacakKitap = 0;
-      // AlinabilirKitaplar obj = new AlinabilirKitaplar();
+        if (KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi) {
+            AlinmisKitaplar.alinmisKitapListesi.add(KitapEkle.kitapList.get(alinacakKitap));
+            AlinabilirKitaplar.alinabilirKitapListesi.remove(alinacakKitap);
+            //todo iade zamani==> kitaplist'e alinmis kitabi ekleyecegiz
 
-       for (KitapConst each : KitapEkle.kitapList)
-       {
+            LocalDateTime trh = LocalDateTime.now();
 
-           if (each.kitapId == secim) {
-               alinacakKitap = indexDegeri;
-           }
-           indexDegeri++;
-       }
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
+           // System.out.println(dtf.format(trh));  // 25/Tem/2022
 
-       for (KitapConst each: KitapEkle.kitapList)//bu her kitap için çalıştığı için kaç kitap varsa o kadar
-           //Şu Id numaralı kitabı şu tarihte aldınız yazdırıyor. burası hatalı
-       {
-           if (each.alinaBilirMi)//todo sadece  seçtiği kitabı  yazdırması lazım burası hatalı
-           {
+            System.out.println(secim+" Id Numarali Kitapi "+dtf.format(trh)+" Tarihinde aldiniz" +
+                    "\nTeslim Tarihiniz : "+dtf.format(trh.plusDays(14))+" dir");
+            KitapEkle.kitapList.get(alinacakKitap).alinmaTarihi = (dtf.format(trh));
+            KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
+           //todo alt satir=> user login olacak bilgileri yerlestirecegiz
+            // KitapEkle.kitapList.get(alinacakKitap).alanKisi=
 
-               //AlinmisKitaplar.alinmisKitapListesi.add(each.kitapId+" "+each.kitapAdi+" "+each.kitapYazari+" "+each.kitapTuru+" "+each.alinaBilirMi);
-               AlinmisKitaplar.alinmisKitapListesi.add(each.toString());
-               System.out.println("Şu Id numaralı kitabı şu tarihte aldınız");
-               //burada kullanıcının aldığı kitaplar listesini gösterelim.
-               // en son burda kaldık
+             System.out.println("Kitap list"+KitapEkle.kitapList);
 
+           // System.out.println("AlinmisKitaplar.alinmisKitapListesi = " + AlinmisKitaplar.alinmisKitapListesi);
+           // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
+            //AlinmisKitaplar.alinmisKitapListesi.add(each.kitapId+" "+each.kitapAdi+" "+each.kitapYazari+" "+each.kitapTuru+" "+each.alinaBilirMi);
+            UserIslemMenusu.userKitapIslemMenusuMethodu();
+        } else
+        {
+            System.out.println("Seçtiğiniz kitap alınmıştır, başka kitap seçiniz");
+            userKitapAlMethodu();
 
-           }
-           else {
-               System.out.println("Seçtiğiniz kitap alınmıştır, başka kitap seçiniz");
-               userKitapAlMethodu();
+        }
 
-           }
-       }
-
-       UserIslemMenusu.userKitapIslemMenusuMethodu();
-
-   }
+        UserIslemMenusu .userKitapIslemMenusuMethodu();
+    }
 }
+

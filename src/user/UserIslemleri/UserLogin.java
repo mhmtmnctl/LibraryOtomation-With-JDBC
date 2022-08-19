@@ -12,7 +12,7 @@ yanlış giriş olursa tekrar girsin veya çıkış koyalım
 
 
  */
-   public static void userLoginMethodu(){
+   public static void userLoginMethodu() throws InterruptedException {
 
       // System.out.println("userLoginMethodu çalıştı");
 

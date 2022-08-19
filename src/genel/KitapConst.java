@@ -7,16 +7,20 @@ public class KitapConst {
     public String kitapYazari;
     public String kitapTuru;
     public boolean alinaBilirMi;
+    public String alinmaTarihi;
+    public String alanKisi;
     public KitapConst() {
 
     }
 
-    public KitapConst(int kitapId, String kitapAdi, String kitapYazari, String kitapTuru,boolean alinaBilirMi) {
+    public KitapConst(int kitapId, String kitapAdi, String kitapYazari, String kitapTuru,boolean alinaBilirMi,String alinmaTarihi,String alanKisi) {
         this.kitapId = kitapId;
         this.kitapAdi = kitapAdi;
         this.kitapYazari = kitapYazari;
         this.kitapTuru = kitapTuru;
         this.alinaBilirMi =alinaBilirMi;
+        this.alinmaTarihi =alinmaTarihi;
+        this.alanKisi =alanKisi;
     }
 
     @Override
