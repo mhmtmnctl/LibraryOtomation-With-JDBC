@@ -8,18 +8,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class AlinabilirKitaplar {
-    /*
-            kitap listesini görcek. yani kitapList çağırcaz
-            üst menüye döndür.
-     */
 
-    public static List<Object> alinabilirKitapListesi = new ArrayList<>();
+    public static List<KitapConst> alinabilirKitapListesi = new ArrayList<>();
     public static void adminAlinabilirKitaplarMethodu(){
 
 
         for (KitapConst each: KitapEkle.kitapList)
         {
-            if (KitapEkle.alinaBilirMi)
+            if (each.alinaBilirMi)
             {
                 alinabilirKitapListesi.add(each);
             }

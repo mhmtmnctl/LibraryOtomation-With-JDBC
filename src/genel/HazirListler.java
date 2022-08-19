@@ -2,7 +2,7 @@ package genel;
 
 import admin.KitapIslemleri.KitapEkle;
 
-import static admin.KitapIslemleri.KitapEkle.kitapList;
+import static admin.KitapIslemleri.KitapEkle.*;
 import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
 
 public class HazirListler {
@@ -17,16 +17,17 @@ public class HazirListler {
     public static String kullaniciMail;
     public static String kullaniciSifre;
     public static String kullaniciTelNo;
+
     public static int kullaniciPuan = 10;
     ////////////////////////////////////
     public static boolean alinaBilirMi=true;
 
     public  static void hazirListlerMetodu(){
 
-        KitapConst kitap = new KitapConst(1, "hobbit", "Tolkien", "Fantastik",alinaBilirMi);
+        KitapConst kitap = new KitapConst(1, "hobbit", "Tolkien", "Fantastik",alinaBilirMi,alinmaTarihi,alanKisi);
 
         kitapList.add(kitap);
-        KitapConst kitap2 = new KitapConst(2, "serenad", "Zülfü Livaneli", "Roman",alinaBilirMi);
+        KitapConst kitap2 = new KitapConst(2, "serenad", "Zülfü Livaneli", "Roman",alinaBilirMi,alinmaTarihi,alanKisi);
 
         kitapList.add(kitap2);
 

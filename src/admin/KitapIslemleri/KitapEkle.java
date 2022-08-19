@@ -26,6 +26,8 @@ public class KitapEkle {
     public static String kitapYazari;
     public static String kitapTuru;
     public static boolean alinaBilirMi=true;
+    public static String alinmaTarihi;
+    public static String alanKisi;
 
 
     public static void adminKitapEkleMethodu() throws InterruptedException {
@@ -39,7 +41,7 @@ public class KitapEkle {
         System.out.print("\nKitap turunu giriniz : ");
         kitapTuru = scan.nextLine();
 
-        KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi);
+        KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi);
 
         //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
 
