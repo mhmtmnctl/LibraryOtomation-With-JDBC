@@ -52,7 +52,7 @@ public class KullaniciSil {
 
 
             System.out.println("silinenlerListesi = " + silinenlerListesi);
-            KullaniciMenüsü.adminKullaniciIslemleriMenusuMethodu();
+            KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
 
         }
         else

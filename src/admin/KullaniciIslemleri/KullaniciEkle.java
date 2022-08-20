@@ -1,6 +1,7 @@
 package admin.KullaniciIslemleri;
 
 import genel.KullaniciConst;
+import genel.Renklendirme;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,9 @@ public class KullaniciEkle {
     public static void adminKullaniciEkleMethodu() throws InterruptedException {
 
 
-
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_GREEN + "-----Kullanıcı Ekleme İşlemi-----" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_RED + "Eklemek istediğiniz kullanıcının bilgilerini eksiksiz giriniz" +Renklendirme.ANSI_RESET);
         Scanner scan = new Scanner(System.in);
         System.out.print("Kullanici adini giriniz : ");
         kullaniciAdi = scan.nextLine();
@@ -62,16 +65,17 @@ public class KullaniciEkle {
     //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
 
          kullaniciList.add(kullanici);
-        System.out.println(kullaniciList);
+       // System.out.println(kullaniciList);
         kullaniciId++;
-        System.out.println("Kullanıcı başarılı şekilde eklendi ve guncellendi..\n");
-        System.out.println("Kullanici Islemleri Menusune Yonlendiriliyorunuz");
+        System.out.println("İşlem başarılı...\n");
+        System.out.print("Üst menuye yonlendiriliyorunuz");
         for (int i = 3; i >= 1; i--) {
-            System.out.print(i+" ");
-            Thread.sleep(500);
+            System.out.print(".");
+            Thread.sleep(1000);
         }
+        System.out.println();
 
-        KullaniciMenüsü.adminKullaniciIslemleriMenusuMethodu();
+        KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
 
 
 
