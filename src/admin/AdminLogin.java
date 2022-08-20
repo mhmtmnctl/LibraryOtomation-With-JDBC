@@ -1,5 +1,7 @@
 package admin;
 
+import admin.KullaniciIslemleri.KullaniciEkle;
+
 import java.util.Scanner;
 
 public class AdminLogin {
@@ -14,6 +16,7 @@ public class AdminLogin {
     login olduğunda adminMenusune gitsin.
      */
     public static void adminLoginMethodu() throws InterruptedException {
+
         String adminAdi = "1";
         String adminSifre = "1";
         Scanner scan = new Scanner(System.in);

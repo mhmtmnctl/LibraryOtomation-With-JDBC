@@ -1,7 +1,7 @@
 package admin;
 
 import admin.KitapIslemleri.KitapMenusu;
-import admin.KullaniciIslemleri.KullanıcıMenüsü;
+import admin.KullaniciIslemleri.KullaniciMenüsü;
 import genel.Cıkıs;
 import genel.IlkGiris;
 
@@ -32,7 +32,7 @@ public class AdminMenusu {
 
         switch (secim){
             case "1":
-                KullanıcıMenüsü.adminKullanıcıIslemleriMenusuMethodu();
+                KullaniciMenüsü.adminKullaniciIslemleriMenusuMethodu();
                 break;
             case "2":
                 KitapMenusu.adminKitapMenusuMethodu();

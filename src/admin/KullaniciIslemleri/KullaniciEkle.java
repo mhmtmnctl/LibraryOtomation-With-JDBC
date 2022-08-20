@@ -71,7 +71,7 @@ public class KullaniciEkle {
             Thread.sleep(500);
         }
 
-        KullanıcıMenüsü.adminKullanıcıIslemleriMenusuMethodu();
+        KullaniciMenüsü.adminKullaniciIslemleriMenusuMethodu();
 
 
 

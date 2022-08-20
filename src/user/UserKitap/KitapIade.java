@@ -1,6 +1,9 @@
 package user.UserKitap;
 
+import admin.KullaniciIslemleri.KullaniciEkle;
+
 public class KitapIade {
+
 
     /*
     hiç kitap almamışsa iade edebileceğiniz bir kitap yok
@@ -13,7 +16,10 @@ public class KitapIade {
 
      */
     public static void userKitapIadeMethodu(){
+
         System.out.println("userKitapIadeMethodu çalıştı");
+
+
     }
 
 }
