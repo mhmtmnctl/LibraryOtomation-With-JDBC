@@ -33,7 +33,10 @@ public class KitapAl {
 
         if (KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi) {
             AlinmisKitaplar.alinmisKitapListesi.add(KitapEkle.kitapList.get(alinacakKitap));
+            KitapEkle.kitapList.remove(alinacakKitap);
             AlinabilirKitaplar.alinabilirKitapListesi.remove(alinacakKitap);
+
+
             //todo iade zamani==> kitaplist'e alinmis kitabi ekleyecegiz
 
             LocalDateTime trh = LocalDateTime.now();
@@ -46,9 +49,11 @@ public class KitapAl {
             KitapEkle.kitapList.get(alinacakKitap).alinmaTarihi = (dtf.format(trh));
             KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
            //todo alt satir=> user login olacak bilgileri yerlestirecegiz
+
+
             // KitapEkle.kitapList.get(alinacakKitap).alanKisi=
 
-             System.out.println("Kitap list"+KitapEkle.kitapList);
+          //   System.out.println("Kitap list"+KitapEkle.kitapList);
 
            // System.out.println("AlinmisKitaplar.alinmisKitapListesi = " + AlinmisKitaplar.alinmisKitapListesi);
            // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
