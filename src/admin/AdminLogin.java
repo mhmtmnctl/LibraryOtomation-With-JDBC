@@ -15,6 +15,8 @@ public class AdminLogin {
     ilk etapta 1 1 seçebilirz.
     en son şifre kontrolü olabilir
     login olduğunda adminMenusune gitsin.
+
+    deneme yapiyoruz
      */
     public static void adminLoginMethodu() throws InterruptedException {
 
