@@ -18,9 +18,13 @@ public class UserKitapDurumu {
 
      */
     public static void userKitapDurumuMethodu() {
-        System.out.println("Guncel kitap durumunuz");
-        System.out.println("Alinmis kitaplar       Alinma tarihi      Iade durumu");
-        System.out.println(alinmisKitap());
+        System.out.println("Guncel kitap durumunuz :");
+        System.out.printf("-------------------------------------------%n");
+        System.out.printf("| %-10s | %-12s | %6s |%n", "Alinmis kitaplar", " Alinma tarihi", "  Iade durumu");
+
+
+        System.out.printf(alinmisKitap());
+        System.out.printf("-------------------------------------------%n");
     }
 
     public static String alinmisKitap() {
@@ -31,7 +35,7 @@ public class UserKitapDurumu {
                 if (each.alinaBilirMi==false){
                     iadeDurumu = "Iade edilmedi";
                 }
-               alinanKitaplar+=each.kitapAdi+"              "+each.alinmaTarihi +"           "+iadeDurumu ;
+               alinanKitaplar+=each.kitapAdi+"              "+each.alinmaTarihi+"         "+iadeDurumu+"\n";
 
             }
         }
