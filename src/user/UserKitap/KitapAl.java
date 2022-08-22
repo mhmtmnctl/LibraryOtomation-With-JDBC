@@ -15,7 +15,7 @@ public class KitapAl {
 
     public static void userKitapAlMethodu() throws InterruptedException {
 
-        System.out.println("mail adresi "+UserLogin.mail);
+       // System.out.println("mail adresi "+UserLogin.mail);
        // AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();
        // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
         System.out.println("Alabileceğiniz kitaplar aşağıdadır");
