@@ -74,9 +74,10 @@ public class KullaniciEkle {
             Thread.sleep(1000);
         }
         System.out.println();
+        System.out.println(kullaniciList);
 
         KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
-
+//todo REGISTER -KULLANICI EKLE ARASI GECISLERDE ** ID ARTIRAMIYORUZ ???
 
 
     }
