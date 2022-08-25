@@ -17,7 +17,7 @@ public class UserRegister {
         List<String> K1okuduguKitaplar = new ArrayList<>();
         List<String> K1AldıgıKitaplar = new ArrayList<>();
      */
-    public static int kullaniciId=(KullaniciEkle.kullaniciId++);
+    public static int kullaniciId;
     public static String kullaniciAdi;
     public static String kullaniciSoyadi;
     public static String kullaniciMail;
@@ -44,10 +44,10 @@ public class UserRegister {
            System.out.print("\nKullanici telefon numarasi giriniz : ");
            kullaniciTelNo = scan.next();
 
-           KullaniciConst kullanici = new KullaniciConst(kullaniciId,kullaniciAdi,kullaniciSoyadi,kullaniciMail,
+           KullaniciConst kullanici = new KullaniciConst(KullaniciEkle.lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
                    kullaniciSifre,kullaniciTelNo,kullaniciPuan);
            kullaniciList.add(kullanici);
-           kullaniciId++;
+          // kullaniciId++;
            System.out.println("Kayit İşlemi Başarili...\n");
            System.out.print("Üst menuye yonlendiriliyorunuz");
            for (int i = 3; i >= 1; i--) {

@@ -6,6 +6,8 @@ import genel.Renklendirme;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+//import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
+
 
 public class KullaniciEkle {
     /*
@@ -28,10 +30,11 @@ public class KullaniciEkle {
     sonra KullanıcıMenusune atalım.
      */
 
+
    public static List<KullaniciConst> kullaniciList = new ArrayList<>();
 
 
-   public static int kullaniciId=1;
+   public static int kullaniciId;
    public static String kullaniciAdi;
    public static String kullaniciSoyadi;
    public static String kullaniciMail;
@@ -39,7 +42,9 @@ public class KullaniciEkle {
    public static String kullaniciTelNo;
    public static int kullaniciPuan = 10;
 
+
     public static void adminKullaniciEkleMethodu() throws InterruptedException {
+        System.out.println("KullaniciEkle.lastId() = " + KullaniciEkle.lastIdMethodu());
 
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
@@ -58,7 +63,7 @@ public class KullaniciEkle {
         System.out.print("\nKullanici telefon numarasi giriniz : ");
         kullaniciTelNo = scan.next();
 
-        KullaniciConst kullanici = new KullaniciConst(kullaniciId,kullaniciAdi,kullaniciSoyadi,kullaniciMail,
+        KullaniciConst kullanici = new KullaniciConst(lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
                                                       kullaniciSifre,kullaniciTelNo,kullaniciPuan);
 
 
@@ -66,7 +71,7 @@ public class KullaniciEkle {
 
          kullaniciList.add(kullanici);
        // System.out.println(kullaniciList);
-        kullaniciId++;
+       // kullaniciId++;
         System.out.println("İşlem başarılı...\n");
         System.out.print("Üst menuye yonlendiriliyorunuz");
         for (int i = 3; i >= 1; i--) {
@@ -80,6 +85,20 @@ public class KullaniciEkle {
 //todo REGISTER -KULLANICI EKLE ARASI GECISLERDE ** ID ARTIRAMIYORUZ ???
 
 
+    }
+
+    public static int lastIdMethodu (){
+        int temp = 0;
+        int lastId = 0;
+
+        for (KullaniciConst each:kullaniciList)
+        {
+            if (each.kullaniciId > temp)
+            {
+               lastId=each.kullaniciId+1;
+            }
+        }
+        return lastId;
     }
 
 

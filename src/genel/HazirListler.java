@@ -33,6 +33,10 @@ public class HazirListler {
 
         kitapList.add(kitap2);
 
+        KullaniciConst kullanici2 = new KullaniciConst(kullaniciId,"Admin","User","admin@gmail",
+                "1111","1111",kullaniciPuan);
+        kullaniciList.add(kullanici2);
+
 
         //////////////////////////////
 
