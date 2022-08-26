@@ -2,10 +2,11 @@ package admin.KullaniciIslemleri;
 
 import admin.AdminMenusu;
 import genel.Cıkıs;
+import genel.Renklendirme;
 
 import java.util.Scanner;
 
-public class KullanıcıMenüsü {
+public class KullaniciMenusu {
     /*
     Kullanıcı İşlemleri
     1-Kullanıcı ekle
@@ -18,10 +19,11 @@ public class KullanıcıMenüsü {
 
 
      */
-    public static void adminKullanıcıIslemleriMenusuMethodu() throws InterruptedException {
+    public static void adminKullaniciIslemleriMenusuMethodu() throws InterruptedException {
 
-        System.out.println("***Admin Kullanıcı İşlemleri***");
-        System.out.println("1-Kullanıcı Ekle\n"+"2-Kullanıcı Sil\n"+"3-Kullanıcı Güncelle\n"+"9-Üst Menü\n"+"0-Çıkış");
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_GREEN + "-----Admin Kullanıcı İşlemleri Menüsü-----" + Renklendirme.ANSI_RESET);
+        System.out.println("1-->Kullanıcı Ekle\n"+"2-->Kullanıcı Sil\n"+"3-->Kullanıcı Güncelle\n"+"9-->Üst Menü\n"+"0-->Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
@@ -42,7 +44,7 @@ public class KullanıcıMenüsü {
                 break;
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");
-                adminKullanıcıIslemleriMenusuMethodu();
+                adminKullaniciIslemleriMenusuMethodu();
                 break;
         }
 

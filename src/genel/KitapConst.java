@@ -26,7 +26,7 @@ public class KitapConst {
     @Override
     public String toString() {
         return
-                "\n" + kitapId + " " + kitapAdi + " " + kitapYazari + " " + kitapTuru;
+                "\n" + kitapId + " " + kitapAdi + " " + kitapYazari + " " + kitapTuru+ " "+alinaBilirMi+" "+ alanKisi;
 
     }
 

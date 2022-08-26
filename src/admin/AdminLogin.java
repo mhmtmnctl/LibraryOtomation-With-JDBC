@@ -1,5 +1,8 @@
 package admin;
 
+import admin.KullaniciIslemleri.KullaniciEkle;
+import genel.Renklendirme;
+
 import java.util.Scanner;
 
 public class AdminLogin {
@@ -14,9 +17,12 @@ public class AdminLogin {
     login olduğunda adminMenusune gitsin.
      */
     public static void adminLoginMethodu() throws InterruptedException {
+
         String adminAdi = "1";
         String adminSifre = "1";
         Scanner scan = new Scanner(System.in);
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_GREEN + "-----Admin Login Ekranı-----  " + Renklendirme.ANSI_RESET);
         System.out.print("Kullanıcı Adı :");
         String giris1 = scan.nextLine();
         System.out.print("Kullanıcı şifresi :");

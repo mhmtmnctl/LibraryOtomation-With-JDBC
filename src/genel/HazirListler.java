@@ -1,9 +1,11 @@
 package genel;
 
-import admin.KitapIslemleri.KitapEkle;
+
+
+import admin.KullaniciIslemleri.KullaniciEkle;
 
 import static admin.KitapIslemleri.KitapEkle.*;
-import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
+import static admin.KullaniciIslemleri.KullaniciEkle.*;
 
 public class HazirListler {
     public static int kitapId = 1;
@@ -31,29 +33,30 @@ public class HazirListler {
 
         kitapList.add(kitap2);
 
+        KullaniciConst kullanici2 = new KullaniciConst(kullaniciId,"Admin","User","admin@gmail",
+                "1111","1111",kullaniciPuan);
+        kullaniciList.add(kullanici2);
+
 
         //////////////////////////////
 
-        KullaniciConst kullanici = new KullaniciConst(1,"Sezer","Ercan","@gmail",
+       /* KullaniciConst kullanici = new KullaniciConst(1,"Sezer","Ercan","sezer@gmail",
                 "1453","0545",kullaniciPuan);
 
 
         //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
 
-        kullaniciList.add(kullanici);
-        KullaniciConst kullanici2 = new KullaniciConst(1,"Ersin","Akun","@gmail",
+        KullaniciEkle.kullaniciList.add(kullanici);
+        KullaniciConst kullanici2 = new KullaniciConst(2,"Ersin","Akun","ersin@gmail",
                 "1111","1111",kullaniciPuan);
 
-        kullaniciList.add(kullanici2);
+        KullaniciEkle.kullaniciList.add(kullanici2);
 
-        KullaniciConst kullanici3 = new KullaniciConst(1,"Mehmet","Emin","@techpro",
+        KullaniciConst kullanici3 = new KullaniciConst(3,"Mehmet","Emin","@techpro",
                 "0001","0001",kullaniciPuan);
 
         kullaniciList.add(kullanici3);
-
-
-
-
+        System.out.println("kullaniciList = " + kullaniciList);*/
 
 
     }

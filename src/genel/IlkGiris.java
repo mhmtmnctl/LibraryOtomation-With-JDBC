@@ -25,8 +25,11 @@ public class IlkGiris {
      */
     public static void ilkGirisMethodu() throws InterruptedException {
 
-        System.out.println("===HOŞGELDİNİZ===");
-        System.out.println("1-Admin İşlemleri\n"+"2-Kullanıcı İşlemleri\n"+"0-Çıkış");
+       // System.out.println("===HOŞGELDİNİZ===");
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_YELLOW_BACKGROUND + Renklendirme.ANSI_BLACK+ "======== HOŞGELDİNİZ =========" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println("1-->Admin İşlemleri\n"+"2-->Kullanıcı İşlemleri\n"+"0-->Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");

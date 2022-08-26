@@ -2,24 +2,10 @@ package admin.KitapIslemleri;
 
 import admin.AdminMenusu;
 import genel.Cıkıs;
-
 import java.util.Scanner;
 
 public class KitapMenusu {
-    /*
-    Kitap İşlemleri
-    1-Kitap Ekle
-    2-Kitap Sil
-    3-Alınabilir Kitaplar
-    4-Alınmış Kİtaplar
-    9-Üst menü(AdminMenusu ne gitsin)
-    0-Çıkış
 
-    kontrol et yanlış girişler için
-
-
-
-     */
     public static void adminKitapMenusuMethodu() throws InterruptedException {
 
         System.out.println("***Admin Kitap İşlemleri Menüsü***");
@@ -28,7 +14,6 @@ public class KitapMenusu {
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
         String secim = scan.next();
-
 
         switch (secim){
             case "1": KitapEkle.adminKitapEkleMethodu();

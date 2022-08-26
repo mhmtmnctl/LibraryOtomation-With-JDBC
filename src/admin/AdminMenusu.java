@@ -1,9 +1,10 @@
 package admin;
 
 import admin.KitapIslemleri.KitapMenusu;
-import admin.KullaniciIslemleri.KullanıcıMenüsü;
+import admin.KullaniciIslemleri.KullaniciMenusu;
 import genel.Cıkıs;
 import genel.IlkGiris;
+import genel.Renklendirme;
 
 import java.util.Scanner;
 
@@ -22,8 +23,9 @@ public class AdminMenusu {
      */
     public static void adminMenusuMethodu() throws InterruptedException {
 
-        System.out.println("***Admin Menüsü***");
-        System.out.println("1-Kullanıcı İşlemleri\n"+"2-Kitap İşlemleri\n"+"9-Üst Menü\n"+"0-Çıkış");
+        System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
+        System.out.println(Renklendirme.ANSI_GREEN + "-----Admin Menüsü-----" + Renklendirme.ANSI_RESET);
+        System.out.println("1-->Kullanıcı İşlemleri\n"+"2-->Kitap İşlemleri\n"+"9-->Üst Menü\n"+"0-->Çıkış");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
@@ -32,7 +34,7 @@ public class AdminMenusu {
 
         switch (secim){
             case "1":
-                KullanıcıMenüsü.adminKullanıcıIslemleriMenusuMethodu();
+                KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
                 break;
             case "2":
                 KitapMenusu.adminKitapMenusuMethodu();
