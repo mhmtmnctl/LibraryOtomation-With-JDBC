@@ -7,19 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class KitapEkle {
-    /*
-    Kitap Ekleme Sayfası
 
-    Int kitapID;   otomatik ID
-    String kitapAdı;
-    String Yazarı;
-    String Tur;
-
-    ekleyince başarılı diye msj verelim bi üst menüye gitsin (KitapMenu)
-    (1,java,ahmet,bilim) 4 elemalı liste
-     */
     public static List<KitapConst> kitapList = new ArrayList<>();
-
 
     public static int kitapId = 1;
     public static String kitapAdi;
@@ -28,7 +17,6 @@ public class KitapEkle {
     public static boolean alinaBilirMi=true;
     public static String alinmaTarihi;
     public static String alanKisi="-";
-
 
     public static void adminKitapEkleMethodu() throws InterruptedException {
 
@@ -43,7 +31,6 @@ public class KitapEkle {
 
         KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi);
 
-        //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
 
         kitapList.add(kitap);
         System.out.println(kitapList);

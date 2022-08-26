@@ -53,7 +53,7 @@ public class UserKitapDurumu extends KitapAl {
                 if (each.alinaBilirMi == false) {
                     iadeDurumu = "Iade edilmedi ";
                 }
-                alinanKitaplar += each.kitapAdi + "              " + each.alinmaTarihi + "        " + iadeDurumu +  "\n";
+                alinanKitaplar += "  "+each.kitapAdi + "              " + each.alinmaTarihi + "        " + iadeDurumu +  "\n";
 
             }
         }

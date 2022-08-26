@@ -1,21 +1,12 @@
 package admin.KitapIslemleri;
 
 import genel.KitapConst;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class KitapSil {
-    /*
-    Kitapları listeleyelim.
-    Oradan ID numarası ile seçsin
-    Lİst yapıp silinen kitaplar listesine ekleyelim
-    Seçilen kitabı simek istiyor musunuz : e/h
-    e derse listten silsin üst menü
-    h derse üst menü
-     */
+
     public static List<Object> silinenKitapListesi = new ArrayList<>();
     public static void adminKitapSilMethodu() throws InterruptedException {
 
@@ -37,18 +28,23 @@ public class KitapSil {
             if(secim == KitapEkle.kitapList.get(silinecekKitap).kitapId)
             {
                 int SilinenenID = KitapEkle.kitapList.get(silinecekKitap).kitapId;
-                //todo kesin silmek istiyor musunuz e/h
-                silinenKitapListesi.add(KitapEkle.kitapList.get(silinecekKitap));
-                KitapEkle.kitapList.remove(silinecekKitap);
+                System.out.print("kesin silmek istiyor musunuz --> (e / h) :");
+                String tercih = scan.next();
+                if (tercih.equalsIgnoreCase("e")){
+                    silinenKitapListesi.add(KitapEkle.kitapList.get(silinecekKitap));
+                    KitapEkle.kitapList.remove(silinecekKitap);
+                    System.out.println();
+                    System.out.println(SilinenenID+" ID numaralı kitap başarı ile silindi.\n");
 
-                System.out.println(SilinenenID+" ID numaralı kitap başarı ile silindi.");
-                System.out.println("Silindikten sonra kitap listesi : "+KitapEkle.kitapList);
-                Thread.sleep(3000);
+                    System.out.println("Silindikten sonra kitap listesi : "+KitapEkle.kitapList+"\n");
 
+                    System.out.println("silinenlerListesi = " + silinenKitapListesi+"\n");
 
-                System.out.println("silinenlerListesi = " + silinenKitapListesi);
-                KitapMenusu.adminKitapMenusuMethodu();
-
+                    KitapMenusu.adminKitapMenusuMethodu();
+                }else {
+                    System.out.println();
+                    KitapMenusu.adminKitapMenusuMethodu();
+                }
             }
             else
             {

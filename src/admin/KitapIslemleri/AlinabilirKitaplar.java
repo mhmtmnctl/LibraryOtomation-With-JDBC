@@ -2,14 +2,9 @@ package admin.KitapIslemleri;
 
 import genel.KitapConst;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
 
 public class AlinabilirKitaplar {
 
-  //  public static List<KitapConst> alinabilirKitapListesi = new ArrayList<>();
     public static void adminAlinabilirKitaplarMethodu() throws InterruptedException {
 
 
@@ -21,7 +16,7 @@ public class AlinabilirKitaplar {
             }
         }
         KitapMenusu.adminKitapMenusuMethodu();
-        //System.out.println(alinabilirKitapListesi);
+
     }
 
 }
