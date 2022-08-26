@@ -52,7 +52,7 @@ public class KitapAl {
             KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
            // KitapEkle.kitapList.remove(alinacakKitap);
 
-            KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail;
+           // KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail
             System.out.println("kitapList = " + KitapEkle.kitapList);
             //todo alt satir=> user login olacak bilgileri yerlestirecegiz
 
