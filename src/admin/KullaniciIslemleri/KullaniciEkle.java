@@ -48,8 +48,10 @@ public class KullaniciEkle {
         System.out.println(Renklendirme.ANSI_RED + "Eklemek istediğiniz kullanıcının bilgilerini eksiksiz giriniz" +Renklendirme.ANSI_RESET);
         Scanner scan = new Scanner(System.in);
         System.out.print("Kullanici adini giriniz : ");
+        //todo isimde harf ve boşluk dışında başka karakter olamaz
         kullaniciAdi = scan.nextLine().toUpperCase();
 
+        //todo soyisimde harf ve boşluk dışında başka karakter olam
         System.out.print("\nKullanici Soyadini giriniz :");
         kullaniciSoyadi = scan.next().toUpperCase();
         System.out.print("\nKullanici mail adresini giriniz : ");
@@ -66,19 +68,15 @@ public class KullaniciEkle {
             System.out.println("sifre en az 4 karakter uzunlugunda olmalidir ve bosluk icermemelidir");
             kullaniciSifre = scan.next();
         }
-
+        //todo telefon no kontrol edilecek, 10 haneli olmalı, başında 0 olmasın, sadece numara içermeli
         System.out.print("\nKullanici telefon numarasi giriniz : ");
         kullaniciTelNo = scan.next();
-//todo telefon no kontrol edilecek
+
         KullaniciConst kullanici = new KullaniciConst(lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
                                                       kullaniciSifre,kullaniciTelNo,kullaniciPuan);
 
 
-    //     System.out.println("Kullanici bilgileri : " + kullanici.toString());
-
          kullaniciList.add(kullanici);
-       // System.out.println(kullaniciList);
-       // kullaniciId++;
         System.out.println("İşlem başarılı...\n");
         System.out.print("Üst menuye yonlendiriliyorunuz");
         for (int i = 3; i >= 1; i--) {
