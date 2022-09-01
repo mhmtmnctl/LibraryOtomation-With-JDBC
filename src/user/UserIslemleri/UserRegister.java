@@ -12,8 +12,7 @@ public class UserRegister {
     /*
     kayıtlı değilse önce kayıt olcak
       Kullanıcı ADı :  mail ile girsin. @gmail.com ile bitsin
-      Şifre         :en az bir büyük harf,küçük harf,sayı ve noktalama işareti içersin
-
+      Şifre         :en az bir büyük harf,küçük harf,sayı ve noktalama işareti içersin.
         List<String> K1okuduguKitaplar = new ArrayList<>();
         List<String> K1AldıgıKitaplar = new ArrayList<>();
      */

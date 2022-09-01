@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class KitapSil {
 
+    //todo silinen kitapları göstermek için ayrı bir class yapılabilir. silinen kitap listesini gösterebiliriz.
     public static List<Object> silinenKitapListesi = new ArrayList<>();
     public static void adminKitapSilMethodu() throws InterruptedException {
 

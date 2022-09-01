@@ -41,6 +41,7 @@ public class KitapAl {
 
             //todo iade zamani==> kitaplist'e alinmis kitabi ekleyecegiz
 
+
             LocalDateTime trh = LocalDateTime.now();
 
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
@@ -52,19 +53,11 @@ public class KitapAl {
             KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
            // KitapEkle.kitapList.remove(alinacakKitap);
 
-            KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail;
+           // KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail
             System.out.println("kitapList = " + KitapEkle.kitapList);
             //todo alt satir=> user login olacak bilgileri yerlestirecegiz
 
 
-
-            // KitapEkle.kitapList.get(alinacakKitap).alanKisi=
-
-          //   System.out.println("Kitap list"+KitapEkle.kitapList);
-
-           // System.out.println("AlinmisKitaplar.alinmisKitapListesi = " + AlinmisKitaplar.alinmisKitapListesi);
-           // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
-            //AlinmisKitaplar.alinmisKitapListesi.add(each.kitapId+" "+each.kitapAdi+" "+each.kitapYazari+" "+each.kitapTuru+" "+each.alinaBilirMi);
             UserIslemMenusu.userKitapIslemMenusuMethodu();
         } else
         {
