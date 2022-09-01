@@ -38,6 +38,7 @@ public class Sql_Default_Veriler {
 
         con.close();
         st.close();
+        //bağlantı kapatıldı
 
     }
 }
