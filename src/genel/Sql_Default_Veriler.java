@@ -11,7 +11,7 @@ public class Sql_Default_Veriler {
         Class.forName("org.postgresql.Driver");
 
         // 2. Adim: Daatabase' e baglan
-        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/library", "postgres", "62191775");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/library", "postgres", "635453r522");
 
         // 3. Adim: Statement olustur
         Statement st = con.createStatement();
