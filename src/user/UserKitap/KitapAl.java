@@ -36,7 +36,7 @@ public class KitapAl {
         }
 
         if (KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi) {
-         //   AlinmisKitaplar.alinmisKitapListesi.add(KitapEkle.kitapList.get(alinacakKitap));
+           // AlinmisKitaplar.alinmisKitapListesi.add(KitapEkle.kitapList.get(alinacakKitap));
           //  AlinabilirKitaplar.alinabilirKitapListesi.remove(alinacakKitap);
 
             //todo iade zamani==> kitaplist'e alinmis kitabi ekleyecegiz
@@ -47,15 +47,17 @@ public class KitapAl {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
            // System.out.println(dtf.format(trh));  // 25/Tem/2022
 
-            System.out.println(secim+" Id Numarali Kitapi "+dtf.format(trh)+" Tarihinde aldiniz" +
+            System.out.println(secim+" Id Numarali Kitabi "+dtf.format(trh)+" Tarihinde aldiniz" +
                     "\nTeslim Tarihiniz : "+dtf.format(trh.plusDays(14))+" dir");
             KitapEkle.kitapList.get(alinacakKitap).alinmaTarihi = (dtf.format(trh));
             KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
            // KitapEkle.kitapList.remove(alinacakKitap);
-
+            KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.loginId;
            // KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail
             System.out.println("kitapList = " + KitapEkle.kitapList);
             //todo alt satir=> user login olacak bilgileri yerlestirecegiz
+
+
 
 
             UserIslemMenusu.userKitapIslemMenusuMethodu();

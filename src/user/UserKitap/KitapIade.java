@@ -20,7 +20,7 @@ public class KitapIade {
     public static void userKitapIadeMethodu() throws InterruptedException {
         int sayac = 0;
         for (KitapConst each : KitapEkle.kitapList) {
-            if (each.alanKisi.contains(UserLogin.mail)) {
+            if (each.alanKisi.contains(UserLogin.loginId)) {
                 System.out.println(each);
                 sayac++;
             }

@@ -28,7 +28,7 @@ public class UserKitapDurumu extends KitapAl {
         do {
             System.out.println("Guncel kitap durumunuz :");
             System.out.printf("-------------------------------------------%n");
-            System.out.printf("| %-10s | %-12s | %6s |%n", "Alinmis kitaplar", " Alinma tarihi", "  Iade durumu");
+            System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Iade durumu");
             System.out.printf(alinmisKitap());
             System.out.printf("-------------------------------------------%n");
             System.out.print("Ust menuye gitmek icin 9'a basiniz :");
@@ -49,7 +49,7 @@ public class UserKitapDurumu extends KitapAl {
 
 //todo TESLIMINE KAC GUN KALDI KISMI YAPILACAK   ** puan ekleme durumunu da yapalim
 
-            if (each.alanKisi.contains(UserLogin.mail)) {
+            if (each.alanKisi.contains(UserLogin.loginId)) {
                 if (each.alinaBilirMi == false) {
                     iadeDurumu = "Iade edilmedi ";
                 }

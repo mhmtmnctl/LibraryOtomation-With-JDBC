@@ -25,10 +25,14 @@ public class KitapConst {
 
     @Override
     public String toString() {
-        return
-                "\n" + kitapId + " " + kitapAdi + " " + kitapYazari + " " + kitapTuru+ " "+alinaBilirMi+" "+ alanKisi;
-
+        return "KitapConst{" +
+                "Id=" + kitapId +
+                ", Adi='" + kitapAdi + '\'' +
+                ", Yazari='" + kitapYazari + '\'' +
+                ", Turu='" + kitapTuru + '\'' +
+                ", alinaBilirMi=" + alinaBilirMi +
+                ", alinmaTarihi='" + alinmaTarihi + '\'' +
+                ", alanKisi='" + alanKisi + '\'' +
+                '}';
     }
-
-
 }
