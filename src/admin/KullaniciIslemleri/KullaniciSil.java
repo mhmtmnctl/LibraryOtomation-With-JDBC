@@ -2,6 +2,7 @@ package admin.KullaniciIslemleri;
 
 import genel.KullaniciConst;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class KullaniciSil {
 
      */
     public static List<Object> silinenlerListesi = new ArrayList<>(); //todo Listler classına taşımaya çalışalım
-    public static void adminKullaniciSilMethodu() throws InterruptedException {
+    public static void adminKullaniciSilMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         System.out.println("Kullanici Silme Islemleri");
         Scanner scan = new Scanner(System.in);
         System.out.println(KullaniciEkle.kullaniciList);

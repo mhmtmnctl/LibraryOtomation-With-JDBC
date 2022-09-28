@@ -4,6 +4,7 @@ import admin.AdminMenusu;
 import genel.Cıkıs;
 import genel.Renklendirme;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class KullaniciMenusu {
@@ -19,7 +20,7 @@ public class KullaniciMenusu {
 
 
      */
-    public static void adminKullaniciIslemleriMenusuMethodu() throws InterruptedException {
+    public static void adminKullaniciIslemleriMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
         System.out.println(Renklendirme.ANSI_GREEN + "-----Admin Kullanıcı İşlemleri Menüsü-----" + Renklendirme.ANSI_RESET);

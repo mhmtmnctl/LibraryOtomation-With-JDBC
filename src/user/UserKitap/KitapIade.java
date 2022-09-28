@@ -4,6 +4,7 @@ import admin.KitapIslemleri.KitapEkle;
 import genel.KitapConst;
 import user.UserIslemleri.UserLogin;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class KitapIade {
@@ -17,7 +18,7 @@ public class KitapIade {
      */
     static Scanner scan = new Scanner(System.in);
 
-    public static void userKitapIadeMethodu() throws InterruptedException {
+    public static void userKitapIadeMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         int sayac = 0;
         for (KitapConst each : KitapEkle.kitapList) {
             if (each.alanKisi.contains(UserLogin.loginId)) {

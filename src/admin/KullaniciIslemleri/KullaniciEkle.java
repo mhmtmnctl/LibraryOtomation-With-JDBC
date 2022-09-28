@@ -3,6 +3,7 @@ package admin.KullaniciIslemleri;
 import genel.KullaniciConst;
 import genel.Renklendirme;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -39,7 +40,7 @@ public class KullaniciEkle {
    public static String kullaniciTelNo;
    public static int kullaniciPuan = 10;
 
-    public static void adminKullaniciEkleMethodu() throws InterruptedException {
+    public static void adminKullaniciEkleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         System.out.println("KullaniciEkle.lastId() = " + KullaniciEkle.lastIdMethodu());
 
 

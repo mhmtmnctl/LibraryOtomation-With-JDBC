@@ -6,6 +6,7 @@ import genel.Cıkıs;
 import genel.IlkGiris;
 import genel.Renklendirme;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AdminMenusu {
@@ -21,7 +22,7 @@ public class AdminMenusu {
          0- çıkış
          yanlış giriş yaparsa da uyarı verip tekrar admin menüsünü çağıralım.
      */
-    public static void adminMenusuMethodu() throws InterruptedException {
+    public static void adminMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
         System.out.println(Renklendirme.ANSI_GREEN + "-----Admin Menüsü-----" + Renklendirme.ANSI_RESET);

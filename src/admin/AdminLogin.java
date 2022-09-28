@@ -3,6 +3,7 @@ package admin;
 import admin.KullaniciIslemleri.KullaniciEkle;
 import genel.Renklendirme;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AdminLogin {
@@ -16,7 +17,7 @@ public class AdminLogin {
     en son şifre kontrolü olabilir
     login olduğunda adminMenusune gitsin.
      */
-    public static void adminLoginMethodu() throws InterruptedException {
+    public static void adminLoginMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         String adminAdi = "1";
         String adminSifre = "1";

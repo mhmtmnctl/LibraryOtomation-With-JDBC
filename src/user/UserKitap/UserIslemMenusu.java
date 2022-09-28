@@ -3,6 +3,7 @@ package user.UserKitap;
 import genel.Cıkıs;
 import user.UserIslemleri.UserLoginMenusu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserIslemMenusu {
@@ -15,7 +16,7 @@ public class UserIslemMenusu {
 
      */
 
-    public static void userKitapIslemMenusuMethodu() throws InterruptedException {
+    public static void userKitapIslemMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println("***Kitap İşlemleri Menüsü***");
         System.out.println("1-Kitap Al\n"+"2-Kitap İade\n"+"3-Kitap Durumlarım\n"+"9-Ust Menü\n"+"0-Çıkış");

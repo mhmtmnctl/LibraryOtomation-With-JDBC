@@ -2,6 +2,7 @@ package admin.KullaniciIslemleri;
 
 import genel.KullaniciConst;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class KullaniciGuncelle {
@@ -30,7 +31,7 @@ public class KullaniciGuncelle {
 
 
      */
-    public static void adminKullaniciGuncelleMethodu() throws InterruptedException {
+    public static void adminKullaniciGuncelleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         System.out.println("Kullanici Guncelleme Islemleri");
 
         Scanner scan = new Scanner(System.in);

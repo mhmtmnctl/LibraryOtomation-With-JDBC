@@ -9,8 +9,15 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/postgresql-42.5.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Setups/postgresql-42.5.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

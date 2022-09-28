@@ -3,6 +3,7 @@ package user.UserIslemleri;
 import genel.Cıkıs;
 import genel.IlkGiris;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserLoginMenusu {
@@ -14,7 +15,7 @@ public class UserLoginMenusu {
     0-çıkış
 
      */
-    public static void userLoginMenusuMethodu() throws InterruptedException {
+    public static void userLoginMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println("***Kullanıcı Menüsü***");
         System.out.println("1-Login\n"+"2-Register\n"+"9-Üst Menü\n"+"0-Çıkış");

@@ -4,6 +4,7 @@ import admin.KitapIslemleri.KitapEkle;
 import genel.KitapConst;
 import user.UserIslemleri.UserLogin;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +23,7 @@ public class UserKitapDurumu extends KitapAl {
        çıkış/üstmenü için 0'a basınız.
 
      */
-    public static void userKitapDurumuMethodu() throws InterruptedException {
+    public static void userKitapDurumuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         String tercih;
         Scanner scan = new Scanner(System.in);
         do {

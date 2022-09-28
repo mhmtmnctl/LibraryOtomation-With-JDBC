@@ -2,6 +2,7 @@ package admin.KitapIslemleri;
 
 import genel.KitapConst;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class KitapEkle {
     public static String alinmaTarihi;
     public static String alanKisi="-";
 
-    public static void adminKitapEkleMethodu() throws InterruptedException {
+    public static void adminKitapEkleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Kitap adini giriniz : ");

@@ -7,13 +7,14 @@ import genel.KitapConst;
 import genel.KullaniciConst;
 import user.UserIslemleri.UserLogin;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class KitapAl {
 
-    public static void userKitapAlMethodu() throws InterruptedException {
+    public static void userKitapAlMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
        // System.out.println("mail adresi "+UserLogin.mail);
        // AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();

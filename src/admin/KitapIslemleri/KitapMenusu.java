@@ -2,11 +2,13 @@ package admin.KitapIslemleri;
 
 import admin.AdminMenusu;
 import genel.Cıkıs;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class KitapMenusu {
 
-    public static void adminKitapMenusuMethodu() throws InterruptedException {
+    public static void adminKitapMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println("***Admin Kitap İşlemleri Menüsü***");
         System.out.println("1-Kitap Ekle\n"+"2-Kitap Sil\n"+"3-Alınabilir Kitaplar\n"+"4-Alınmış Kitaplar\n"+"9-Üst Menü\n"+"0-Çıkış");

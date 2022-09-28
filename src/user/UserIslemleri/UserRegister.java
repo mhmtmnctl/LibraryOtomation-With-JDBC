@@ -4,6 +4,7 @@ import admin.KullaniciIslemleri.KullaniciEkle;
 import genel.KullaniciConst;
 import genel.Renklendirme;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
@@ -24,7 +25,7 @@ public class UserRegister {
     public static String kullaniciTelNo;
     public static int kullaniciPuan = 10;
 
-   public static void userRegisterMethodu() throws InterruptedException {
+   public static void userRegisterMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
 
            System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);

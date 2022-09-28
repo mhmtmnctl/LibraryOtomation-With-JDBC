@@ -3,6 +3,7 @@ package genel;
 import admin.AdminLogin;
 import user.UserIslemleri.UserLoginMenusu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class IlkGiris {
@@ -23,7 +24,7 @@ public class IlkGiris {
      çıkış yapılırsa çıkış yaptınız tarzı birşey yazalım
 
      */
-    public static void ilkGirisMethodu() throws InterruptedException {
+    public static void ilkGirisMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
        // System.out.println("===HOŞGELDİNİZ===");
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);

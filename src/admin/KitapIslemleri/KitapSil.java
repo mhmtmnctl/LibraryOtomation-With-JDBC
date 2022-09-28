@@ -1,6 +1,8 @@
 package admin.KitapIslemleri;
 
 import genel.KitapConst;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +11,7 @@ public class KitapSil {
 
     //todo silinen kitapları göstermek için ayrı bir class yapılabilir. silinen kitap listesini gösterebiliriz.
     public static List<Object> silinenKitapListesi = new ArrayList<>();
-    public static void adminKitapSilMethodu() throws InterruptedException {
+    public static void adminKitapSilMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
             System.out.println("Kitap Silme Islemleri");
             Scanner scan = new Scanner(System.in);
