@@ -21,8 +21,6 @@ yanlış giriş olursa tekrar girsin veya çıkış koyalım
 
  */
 
-
-
     public static String sifre;
     public static String mail;
 
@@ -71,6 +69,9 @@ yanlış giriş olursa tekrar girsin veya çıkış koyalım
                }else {
                    UserLoginMenusu.userLoginMenusuMethodu();
                }
+
+        con.close();
+        st.close();
 
     }
 
