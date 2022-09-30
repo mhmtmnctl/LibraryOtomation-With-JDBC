@@ -62,11 +62,12 @@ public class KullaniciEkle {
         System.out.print("\nKullanici mail adresini giriniz : ");
         kullaniciMail = scan.next();
 
-//        while (!(kullaniciMail.contains("@") && kullaniciMail.contains("."))){
-//            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
-//            kullaniciMail=scan.next();
-//        }
-//
+        while (!(kullaniciMail.contains("@") && kullaniciMail.contains(".")))
+        {
+            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
+            kullaniciMail=scan.next();
+        }
+
         System.out.print("\nKullanici sifre giriniz (sifre en az 4 karakter uzunlugunda olmalidir) : ");
         kullaniciSifre = scan.next();
         while(kullaniciSifre.length()<4 || kullaniciSifre.contains(" ")){
@@ -86,7 +87,7 @@ public class KullaniciEkle {
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
 
-
+//todo kullanıcı eklede kaldık
 
         con.close();
         st.close();
