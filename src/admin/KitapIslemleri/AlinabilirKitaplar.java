@@ -12,7 +12,12 @@ public class AlinabilirKitaplar {
 
     public static void adminAlinabilirKitaplarMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
+       kitaplariListele();
+        KitapMenusu.adminKitapMenusuMethodu();
 
+    }
+
+    public static void kitaplariListele() throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
@@ -23,13 +28,11 @@ public class AlinabilirKitaplar {
         System.out.println("***Alınabilir Kitaplar***");
         while (alinabilirKitaplar.next()) {
             System.out.println(alinabilirKitaplar.getInt(1)+"-"+
-                                  alinabilirKitaplar.getString(2)+"-"+
-                                  alinabilirKitaplar.getString(3)+"-"+
-                                  alinabilirKitaplar.getString(4));
+                    alinabilirKitaplar.getString(2)+"-"+
+                    alinabilirKitaplar.getString(3)+"-"+
+                    alinabilirKitaplar.getString(4));
 
         }
-
-        KitapMenusu.adminKitapMenusuMethodu();
 
         con.close();
         st.close();

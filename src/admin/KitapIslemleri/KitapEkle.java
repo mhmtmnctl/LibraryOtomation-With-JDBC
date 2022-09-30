@@ -2,10 +2,7 @@ package admin.KitapIslemleri;
 
 import genel.KitapConst;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,41 +29,27 @@ public class KitapEkle {
         kitapYazari = scan.nextLine();
         System.out.print("\nKitap turunu giriniz : ");
         kitapTuru = scan.nextLine();
-
-        KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi);
-
-
-       // kitapList.add(kitap);
-      //  System.out.println(kitapList);
-    //    kitapId++;
-        System.out.println("Kitap başarılı şekilde eklendi...\n");
-        System.out.println("Kitap Islemleri Menusune Yonlendiriliyorunuz ");
-        for (int i = 3; i >= 1; i--) {
-            System.out.print(i + " ");
-            Thread.sleep(1000);
-        }
+//        KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi);
         System.out.println("");
 
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
-//todo prepared statement ile yapalım
-        /*
-        PreparedStatement ps = con.prepareStatement("INSERT INTO ogrenciler VALUES(?, ?, ?, ?)");
-        ps.setInt(1, 200);
-        ps.setString(2,"Veli Can");
-        ps.setString(3,"12");
-        ps.setString(4,"E");
-         */
-        String sqlQueryKitapEkle="INSERT INTO books (kitapId,kitapAdi,kitapYazari,kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi) VALUES (DEFAULT,"+kitapAdi+","+kitapYazari+",'deneme',true,NULL,NULL)";
-        st.execute(sqlQueryKitapEkle);
+
+
+        PreparedStatement ps = con.prepareStatement("INSERT INTO books VALUES(DEFAULT,?, ?, ?,true,NULL,NULL)");
+
+        ps.setString(1,kitapAdi);
+        ps.setString(2,kitapYazari);
+        ps.setString(3,kitapTuru);
+        ps.executeUpdate();
+        System.out.println("kitap eklendi");
 
         KitapMenusu.adminKitapMenusuMethodu();
-
-
 
         con.close();
         st.close();
 
     }
+
 }

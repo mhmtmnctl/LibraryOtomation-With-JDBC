@@ -1,9 +1,13 @@
 package admin.KullaniciIslemleri;
 
+import admin.KitapIslemleri.KitapMenusu;
 import genel.KullaniciConst;
 import genel.Renklendirme;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -41,7 +45,7 @@ public class KullaniciEkle {
    public static int kullaniciPuan = 10;
 
     public static void adminKullaniciEkleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
-        System.out.println("KullaniciEkle.lastId() = " + KullaniciEkle.lastIdMethodu());
+       // System.out.println("KullaniciEkle.lastId() = " + KullaniciEkle.lastIdMethodu());
 
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
@@ -58,26 +62,36 @@ public class KullaniciEkle {
         System.out.print("\nKullanici mail adresini giriniz : ");
         kullaniciMail = scan.next();
 
-        while (!(kullaniciMail.contains("@") && kullaniciMail.contains("."))){
-            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
-            kullaniciMail=scan.next();
-        }
-
+//        while (!(kullaniciMail.contains("@") && kullaniciMail.contains("."))){
+//            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
+//            kullaniciMail=scan.next();
+//        }
+//
         System.out.print("\nKullanici sifre giriniz (sifre en az 4 karakter uzunlugunda olmalidir) : ");
         kullaniciSifre = scan.next();
         while(kullaniciSifre.length()<4 || kullaniciSifre.contains(" ")){
             System.out.println("sifre en az 4 karakter uzunlugunda olmalidir ve bosluk icermemelidir");
             kullaniciSifre = scan.next();
         }
-        //todo telefon no kontrol edilecek, 10 haneli olmalı, başında 0 olmasın, sadece numara içermeli
+//        //todo telefon no kontrol edilecek, 10 haneli olmalı, başında 0 olmasın, sadece numara içermeli
         System.out.print("\nKullanici telefon numarasi giriniz : ");
         kullaniciTelNo = scan.next();
+//
+   //   KullaniciConst kullanici = new KullaniciConst(lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
+//                                                      kullaniciSifre,kullaniciTelNo,kullaniciPuan);
+//
+//
+//         kullaniciList.add(kullanici);
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
 
-        KullaniciConst kullanici = new KullaniciConst(lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
-                                                      kullaniciSifre,kullaniciTelNo,kullaniciPuan);
 
 
-         kullaniciList.add(kullanici);
+        con.close();
+        st.close();
+
+
         System.out.println("İşlem başarılı...\n");
         System.out.print("Üst menuye yonlendiriliyorunuz");
         for (int i = 3; i >= 1; i--) {
@@ -85,25 +99,13 @@ public class KullaniciEkle {
             Thread.sleep(1000);
         }
         System.out.println();
-        System.out.println(kullaniciList);
+     //   System.out.println(kullaniciList);
 
         KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
 
     }
 
-    public static int lastIdMethodu (){
-        int temp = 0;
-        int lastId = 0;
 
-        for (KullaniciConst each:kullaniciList)
-        {
-            if (each.kullaniciId > temp)
-            {
-               lastId=each.kullaniciId+1;
-            }
-        }
-        return lastId;
-    }
 
 
 }

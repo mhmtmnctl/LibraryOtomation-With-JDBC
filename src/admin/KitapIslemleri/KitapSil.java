@@ -2,7 +2,7 @@ package admin.KitapIslemleri;
 
 import genel.KitapConst;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,46 +13,31 @@ public class KitapSil {
     public static List<Object> silinenKitapListesi = new ArrayList<>();
     public static void adminKitapSilMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
+
+
             System.out.println("Kitap Silme Islemleri");
             Scanner scan = new Scanner(System.in);
-            System.out.println(KitapEkle.kitapList);
+
+            AlinabilirKitaplar.kitaplariListele();
             System.out.print("Silmek istediğiniz kitabin ID numarısını giriniz :");
             int secim = scan.nextInt();
-            int indexDegeri = 0;
-            int silinecekKitap=0;
 
-            for (KitapConst each:KitapEkle.kitapList) {
-                if(each.kitapId==secim)
-                {
-                    silinecekKitap=indexDegeri;
-                }
-                indexDegeri++;
-            }
-            if(secim == KitapEkle.kitapList.get(silinecekKitap).kitapId)
-            {
-                int SilinenenID = KitapEkle.kitapList.get(silinecekKitap).kitapId;
-                System.out.print("kesin silmek istiyor musunuz --> (e / h) :");
-                String tercih = scan.next();
-                if (tercih.equalsIgnoreCase("e")){
-                    silinenKitapListesi.add(KitapEkle.kitapList.get(silinecekKitap));
-                    KitapEkle.kitapList.remove(silinecekKitap);
-                    System.out.println();
-                    System.out.println(SilinenenID+" ID numaralı kitap başarı ile silindi.\n");
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
 
-                    System.out.println("Silindikten sonra kitap listesi : "+KitapEkle.kitapList+"\n");
+        String sqlKitapSilQuery = "DELETE FROM books WHERE kitapid = ?";
+        PreparedStatement ps = con.prepareStatement(sqlKitapSilQuery);
 
-                    System.out.println("silinenlerListesi = " + silinenKitapListesi+"\n");
+        ps.setInt(1,secim);
+      //  System.out.println();
+        ps.executeUpdate();//todo bize int dönüyo 1den büyükse silindi,değilse silinmedi. if else yap
+        System.out.println(secim+ " id numaralı kitap silindi");
 
-                    KitapMenusu.adminKitapMenusuMethodu();
-                }else {
-                    System.out.println();
-                    KitapMenusu.adminKitapMenusuMethodu();
-                }
-            }
-            else
-            {
-                System.out.println("Seçtiğiniz ID de bir kitap yoktur. Geçerli bir seçim yapınız :");
-                adminKitapSilMethodu();
-            }
+          KitapMenusu.adminKitapMenusuMethodu();
+
+        con.close();
+        st.close();
+
     }
 }

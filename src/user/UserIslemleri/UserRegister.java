@@ -44,9 +44,9 @@ public class UserRegister {
            System.out.print("\nKullanici telefon numarasi giriniz : ");
            kullaniciTelNo = scan.next();
 
-           KullaniciConst kullanici = new KullaniciConst(KullaniciEkle.lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
-                   kullaniciSifre,kullaniciTelNo,kullaniciPuan);
-           kullaniciList.add(kullanici);
+        //   KullaniciConst kullanici = new KullaniciConst(KullaniciEkle.lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
+                   //kullaniciSifre,kullaniciTelNo,kullaniciPuan);
+        //   kullaniciList.add(kullanici);
           // kullaniciId++;
            System.out.println("Kayit İşlemi Başarili...\n");
            System.out.print("Üst menuye yonlendiriliyorunuz");
