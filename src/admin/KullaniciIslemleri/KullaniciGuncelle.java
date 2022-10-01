@@ -2,7 +2,7 @@ package admin.KullaniciIslemleri;
 
 import genel.KullaniciConst;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class KullaniciGuncelle {
@@ -34,32 +34,87 @@ public class KullaniciGuncelle {
     public static void adminKullaniciGuncelleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         System.out.println("Kullanici Guncelleme Islemleri");
 
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
+        String sqlKullanicilar = "SELECT * FROM kullanicilar";
+        ResultSet kullanicilar =  st.executeQuery(sqlKullanicilar);
+        //1	"Ersin"	"AKUN"	"ersinakun34@gmail.com"	"1234"	"2126140853"	10
+        while (kullanicilar.next()) {
+            System.out.println(kullanicilar.getInt(1)+"-"+ //id
+                    kullanicilar.getString(2)+"-"+//ad
+                    kullanicilar.getString(3)+"-"+//soyad
+                    kullanicilar.getString(4)+"-"+//mail
+                    kullanicilar.getString(5)+"-"+//şifre
+                    kullanicilar.getString(6)+"-"+//tel
+                    kullanicilar.getInt(7));//puan
+        }
+
+
         Scanner scan = new Scanner(System.in);
-        System.out.println(KullaniciEkle.kullaniciList);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
-
-        int secim = scan.nextInt();
-        int indexDegeri = 0;
-        int guncellenecekKisi = 0;
-
-        for (KullaniciConst each : KullaniciEkle.kullaniciList) {
-
-            if (each.kullaniciId == secim) {
-                guncellenecekKisi = indexDegeri;
-            }
-            indexDegeri++;
+        int secilenId = scan.nextInt();
+        scan.nextLine();
+        System.out.print("Kullanici adini giriniz : ");
+       String kullaniciAdi = scan.nextLine().toUpperCase();
+        System.out.print("\nKullanici Soyadini giriniz :");
+      String  kullaniciSoyadi = scan.next().toUpperCase();
+        System.out.print("\nKullanici mail adresini giriniz : ");
+      String  kullaniciMail = scan.next();
+        while (!(kullaniciMail.contains("@") && kullaniciMail.contains(".")))
+        {
+            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
+            kullaniciMail=scan.next();
         }
-        // todo getter setter ile deneyelim
 
-        if (secim == KullaniciEkle.kullaniciList.get(guncellenecekKisi).kullaniciId) {
-            int SilinenenID = KullaniciEkle.kullaniciList.get(guncellenecekKisi).kullaniciId;
-            // todo kesin silmek istiyor musunuz e/h
-            KullaniciEkle.kullaniciList.remove(guncellenecekKisi);
-
-            // version 2 de getter setter uygulanacak
-            //Thread.sleep(3000);
+        System.out.print("\nKullanici sifre giriniz (sifre en az 4 karakter uzunlugunda olmalidir) : ");
+      String  kullaniciSifre = scan.next();
+        while(kullaniciSifre.length()<4 || kullaniciSifre.contains(" ")){
+            System.out.println("sifre en az 4 karakter uzunlugunda olmalidir ve bosluk icermemelidir");
+            kullaniciSifre = scan.next();
         }
-        KullaniciEkle.adminKullaniciEkleMethodu();
+
+        System.out.print("\nKullanici telefon numarasi giriniz : ");
+        String kullaniciTelNo = scan.next();
+
+
+
+        //todo tek tek hangisi güncellenmek isteniyorsa switch case ile kontrol edilip sadece o alan da güncellenebilir.
+        //todo şimdilik hepsini güncelliyoruz
+
+
+
+/*
+UPDATE tedarikciler
+SET firma_ismi = 'Vestel' WHERE vergi_no=102
+
+PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEFAULT,?, ?, ?,?,?,10)");
+        ps.setString(1,kullaniciAdi);
+ */
+
+        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciadi=?,kullanicisoyadi=?,kullanicimail=?,kullanicisifre=?,kullanicitelno=? WHERE kullaniciid=?");
+        ps.setString(1,kullaniciAdi);
+        ps.setString(2,kullaniciSoyadi);
+        ps.setString(3,kullaniciMail);
+        ps.setString(4,kullaniciSifre);
+        ps.setString(5,kullaniciTelNo);
+        ps.setInt(6,secilenId);
+        ps.executeUpdate();
+
+        con.close();
+        st.close();
+        System.out.println(secilenId +" id numaralı kullanıcı güncellendi");
+        System.out.println("İşlem başarılı...\n");
+        System.out.print("Üst menuye yonlendiriliyorunuz");
+        for (int i = 3; i >= 1; i--) {
+            System.out.print(".");
+            Thread.sleep(1000);
+        }
+        System.out.println();
+        //   System.out.println(kullaniciList);
+
+        KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
+        //KullaniciEkle.adminKullaniciEkleMethodu();
 
 
 

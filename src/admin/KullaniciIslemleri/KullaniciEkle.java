@@ -4,10 +4,7 @@ import admin.KitapIslemleri.KitapMenusu;
 import genel.KullaniciConst;
 import genel.Renklendirme;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,14 +77,34 @@ public class KullaniciEkle {
 //
    //   KullaniciConst kullanici = new KullaniciConst(lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
 //                                                      kullaniciSifre,kullaniciTelNo,kullaniciPuan);
-//
-//
+
+
 //         kullaniciList.add(kullanici);
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
 
 //todo kullanıcı eklede kaldık
+        /*
+
+        PreparedStatement ps = con.prepareStatement("INSERT INTO books VALUES(DEFAULT,?, ?, ?,true,NULL,NULL)");
+
+        ps.setString(1,kitapAdi);
+        ps.setString(2,kitapYazari);
+        ps.setString(3,kitapTuru);
+        ps.executeUpdate();
+        System.out.println("kitap eklendi");
+         */
+        //1	"Ersin"	"AKUN"	"ersinakun34@gmail.com"	"1234"	"2126140853"	10
+
+
+        PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEFAULT,?, ?, ?,?,?,10)");
+        ps.setString(1,kullaniciAdi);
+        ps.setString(2,kullaniciSoyadi);
+        ps.setString(3,kullaniciMail);
+        ps.setString(4,kullaniciSifre);
+        ps.setString(5,kullaniciTelNo);
+        ps.executeUpdate();
 
         con.close();
         st.close();
