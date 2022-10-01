@@ -48,7 +48,7 @@ public class KullaniciSil {
         int secilenId = scan.nextInt();
 
 
-
+        //todo olmayan bir id seçerse kontrol et, id dışında string girerse kontrol et. boşluk vs
         String sqlKullaniciSilQuery = "DELETE FROM kullanicilar WHERE kullaniciid = ?";
         PreparedStatement ps = con.prepareStatement(sqlKullaniciSilQuery);
 

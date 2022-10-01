@@ -4,7 +4,7 @@ import admin.KullaniciIslemleri.KullaniciEkle;
 import genel.KullaniciConst;
 import genel.Renklendirme;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
@@ -44,18 +44,29 @@ public class UserRegister {
            System.out.print("\nKullanici telefon numarasi giriniz : ");
            kullaniciTelNo = scan.next();
 
-        //   KullaniciConst kullanici = new KullaniciConst(KullaniciEkle.lastIdMethodu(),kullaniciAdi,kullaniciSoyadi,kullaniciMail,
-                   //kullaniciSifre,kullaniciTelNo,kullaniciPuan);
-        //   kullaniciList.add(kullanici);
-          // kullaniciId++;
-           System.out.println("Kayit İşlemi Başarili...\n");
-           System.out.print("Üst menuye yonlendiriliyorunuz");
-           for (int i = 3; i >= 1; i--) {
-               System.out.print(".");
-               Thread.sleep(1000);
-           }
-           System.out.println();
-       System.out.println(kullaniciList);
+       Class.forName("org.postgresql.Driver");
+       Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+       Statement st = con.createStatement();
+
+       PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEFAULT,?, ?, ?,?,?,10)");
+       ps.setString(1,kullaniciAdi);
+       ps.setString(2,kullaniciSoyadi);
+       ps.setString(3,kullaniciMail);
+       ps.setString(4,kullaniciSifre);
+       ps.setString(5,kullaniciTelNo);
+       ps.executeUpdate();
+
+       con.close();
+       st.close();
+
+
+       System.out.println("İşlem başarılı...\n");
+       System.out.print("Üst menuye yonlendiriliyorunuz");
+       for (int i = 3; i >= 1; i--) {
+           System.out.print(".");
+           Thread.sleep(1000);
+       }
+       System.out.println();
            UserLoginMenusu.userLoginMenusuMethodu();
 
    }

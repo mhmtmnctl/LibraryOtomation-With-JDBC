@@ -29,7 +29,6 @@ public class KitapEkle {
         kitapYazari = scan.nextLine();
         System.out.print("\nKitap turunu giriniz : ");
         kitapTuru = scan.nextLine();
-//        KitapConst kitap = new KitapConst(kitapId, kitapAdi, kitapYazari, kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi);
         System.out.println("");
 
         Class.forName("org.postgresql.Driver");

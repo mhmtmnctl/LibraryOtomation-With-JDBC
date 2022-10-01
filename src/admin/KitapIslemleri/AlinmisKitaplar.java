@@ -7,13 +7,7 @@ import java.sql.*;
 
 public class AlinmisKitaplar {
     public static void adminAlinmisKitaplarMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
-        //önce kullanıcının alması lazım
- //       for (KitapConst each:KitapEkle.kitapList) {
- //           if (!each.alinaBilirMi)
- //           {
- //               System.out.println(each);
- //           }
- //       }
+
 
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
@@ -32,16 +26,12 @@ public class AlinmisKitaplar {
                     alinmisKitaplar.getString(6)+"-"+
                     alinmisKitaplar.getString(7));
 
-
         }
 
         KitapMenusu.adminKitapMenusuMethodu();
 
         con.close();
         st.close();
-
-
-
 
         KitapMenusu.adminKitapMenusuMethodu();
 

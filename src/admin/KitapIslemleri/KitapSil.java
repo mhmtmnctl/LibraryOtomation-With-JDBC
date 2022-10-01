@@ -30,7 +30,6 @@ public class KitapSil {
         PreparedStatement ps = con.prepareStatement(sqlKitapSilQuery);
 
         ps.setInt(1,secim);
-      //  System.out.println();
         ps.executeUpdate();//todo bize int dönüyo 1den büyükse silindi,değilse silinmedi. if else yap
         System.out.println(secim+ " id numaralı kitap silindi");
 
