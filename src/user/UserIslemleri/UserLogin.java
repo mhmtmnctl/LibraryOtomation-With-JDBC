@@ -57,6 +57,7 @@ yanlış giriş olursa tekrar girsin veya çıkış koyalım
 
             if(mail.equals(users.getString(4)) && sifre.equals(users.getString(5))){
                 System.out.println("Tebrikler giriş yaptınız... ");
+                loginId=users.getString(1).toString();
                 UserIslemMenusu.userKitapIslemMenusuMethodu();
             }
 

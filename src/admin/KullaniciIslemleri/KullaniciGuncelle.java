@@ -53,6 +53,7 @@ public class KullaniciGuncelle {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
+        //todo girilen id yoksa kontrol et
         int secilenId = scan.nextInt();
         scan.nextLine();
         System.out.print("Kullanici adini giriniz : ");

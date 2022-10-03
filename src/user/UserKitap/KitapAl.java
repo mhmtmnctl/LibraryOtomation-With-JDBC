@@ -7,7 +7,7 @@ import genel.KitapConst;
 import genel.KullaniciConst;
 import user.UserIslemleri.UserLogin;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -16,60 +16,43 @@ public class KitapAl {
 
     public static void userKitapAlMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
+
        // System.out.println("mail adresi "+UserLogin.mail);
        // AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();
        // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
+
+
+       // System.out.println(KitapEkle.kitapList);
         System.out.println("Alabileceğiniz kitaplar aşağıdadır");
-        System.out.println(KitapEkle.kitapList);
+        AlinabilirKitaplar.kitaplariListele();
+
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
+
         System.out.print("İstediğiniz kitabın ID numarasının giriniz :");
         Scanner scan = new Scanner(System.in);
         int secim = scan.nextInt();
 
-        int indexDegeri = 0;
-        int alinacakKitap = 0;
-
-        for (KitapConst each : KitapEkle.kitapList) {
-
-            if (each.kitapId == secim) {
-                alinacakKitap = indexDegeri;
-            }
-            indexDegeri++;
-        }
-
-        if (KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi) {
-           // AlinmisKitaplar.alinmisKitapListesi.add(KitapEkle.kitapList.get(alinacakKitap));
-          //  AlinabilirKitaplar.alinabilirKitapListesi.remove(alinacakKitap);
-
-            //todo iade zamani==> kitaplist'e alinmis kitabi ekleyecegiz
-
-
             LocalDateTime trh = LocalDateTime.now();
-
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
-           // System.out.println(dtf.format(trh));  // 25/Tem/2022
+
+        PreparedStatement ps = con.prepareStatement("UPDATE books SET alinabilirmi=false,alankisi=?,alinmatarihi=? WHERE kitapid=?");
+        ps.setString(1, UserLogin.loginId);
+        ps.setString(2, dtf.format(trh));
+        ps.setInt(3,secim);
+        ps.executeUpdate();
 
             System.out.println(secim+" Id Numarali Kitabi "+dtf.format(trh)+" Tarihinde aldiniz" +
                     "\nTeslim Tarihiniz : "+dtf.format(trh.plusDays(14))+" dir");
-            KitapEkle.kitapList.get(alinacakKitap).alinmaTarihi = (dtf.format(trh));
-            KitapEkle.kitapList.get(alinacakKitap).alinaBilirMi=false;
-           // KitapEkle.kitapList.remove(alinacakKitap);
-            KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.loginId;
-           // KitapEkle.kitapList.get(alinacakKitap).alanKisi=UserLogin.mail
-            System.out.println("kitapList = " + KitapEkle.kitapList);
-            //todo alt satir=> user login olacak bilgileri yerlestirecegiz
+
+        con.close();
+        st.close();
+
+        UserIslemMenusu.userKitapIslemMenusuMethodu();
 
 
 
-
-            UserIslemMenusu.userKitapIslemMenusuMethodu();
-        } else
-        {
-            System.out.println("Seçtiğiniz kitap alınmıştır, başka kitap seçiniz");
-            userKitapAlMethodu();
-
-        }
-
-        UserIslemMenusu .userKitapIslemMenusuMethodu();
     }
 }
 
