@@ -20,7 +20,7 @@ public class UserKitapDurumu extends KitapAl {
    //    eskiyi gösteremiyoruz çünkü database yok.
        şuan okuduğu kitabı gösterelim.
 
-       çıkış/üstmenü için 0'a basınız.
+       çıkış/üstmenü için 0'a basınız.???
 
      */
     public static void userKitapDurumuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
