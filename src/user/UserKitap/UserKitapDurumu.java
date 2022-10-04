@@ -1,10 +1,8 @@
 package user.UserKitap;
 
-import admin.KitapIslemleri.KitapEkle;
-import genel.KitapConst;
 import user.UserIslemleri.UserLogin;
 
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.util.Scanner;
 
@@ -27,8 +25,9 @@ public class UserKitapDurumu extends KitapAl {
         do {
             System.out.println("Guncel kitap durumunuz :");
             System.out.printf("-------------------------------------------%n");
-            System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Iade durumu");
-            System.out.printf(alinmisKitap());
+            System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Teslim tarihi");
+           // System.out.printf();
+            alinmisKitap();
             System.out.printf("-------------------------------------------%n");
             System.out.print("Ust menuye gitmek icin 9'a basiniz :");
             tercih = scan.next();
@@ -40,23 +39,33 @@ public class UserKitapDurumu extends KitapAl {
             userKitapDurumuMethodu();
         }
     }
-    public static String alinmisKitap() {
+    public static void alinmisKitap() throws ClassNotFoundException, SQLException {
 
-        String iadeDurumu = "";
-        String alinanKitaplar = "";
-        for (KitapConst each : KitapEkle.kitapList) {
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
 
-//todo TESLIMINE KAC GUN KALDI KISMI YAPILACAK   ** puan ekleme durumunu da yapalim
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM books WHERE alankisi=?");
+        ps.setString(1, UserLogin.loginId);
+        ResultSet kullaniciKitaplari =  ps.executeQuery();
+        while (kullaniciKitaplari.next()) {
+            /*
+            System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Teslim tarihi");
+             */
+            System.out.println(kullaniciKitaplari.getString(2)+"              -"+
+                    //todo db de iade tarihi tutmadan dtf ile yapılabilir mi
+                    //+dtf.format(trh.plusDays(14))
+                    kullaniciKitaplari.getString(6)+"              -"+
+                    kullaniciKitaplari.getString(7));
+                   // kullaniciKitaplari.getString(4));
 
-            if (each.alanKisi.contains(UserLogin.loginId)) {
-                if (each.alinaBilirMi == false) {
-                    iadeDurumu = "Iade edilmedi ";
-                }
-                alinanKitaplar += "  "+each.kitapAdi + "              " + each.alinmaTarihi + "        " + iadeDurumu +  "\n";
 
-            }
         }
+        con.close();
+        st.close();
 
-        return alinanKitaplar;
+
+
     }
+
 }

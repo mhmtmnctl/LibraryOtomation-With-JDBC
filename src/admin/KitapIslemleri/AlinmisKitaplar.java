@@ -24,7 +24,8 @@ public class AlinmisKitaplar {
                     alinmisKitaplar.getString(3)+"-"+
                     alinmisKitaplar.getString(4)+"-"+
                     alinmisKitaplar.getString(6)+"-"+
-                    alinmisKitaplar.getString(7));
+                    alinmisKitaplar.getString(7)+"-"+
+                    alinmisKitaplar.getString(8));
 
         }
 

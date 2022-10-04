@@ -36,7 +36,7 @@ public class KitapEkle {
         Statement st = con.createStatement();
 
 
-        PreparedStatement ps = con.prepareStatement("INSERT INTO books VALUES(DEFAULT,?, ?, ?,true,NULL,NULL)");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO books VALUES(DEFAULT,?, ?, ?,true,NULL,NULL,NULL)");
 
         ps.setString(1,kitapAdi);
         ps.setString(2,kitapYazari);

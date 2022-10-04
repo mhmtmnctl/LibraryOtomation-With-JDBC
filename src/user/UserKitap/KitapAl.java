@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class KitapAl {
+   public static String iadeTarihi;
 
     public static void userKitapAlMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
@@ -37,12 +38,13 @@ public class KitapAl {
             LocalDateTime trh = LocalDateTime.now();
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
 
-        PreparedStatement ps = con.prepareStatement("UPDATE books SET alinabilirmi=false,alankisi=?,alinmatarihi=? WHERE kitapid=?");
+        PreparedStatement ps = con.prepareStatement("UPDATE books SET alinabilirmi=false,alankisi=?,alinmatarihi=?,iadetarihi=? WHERE kitapid=?");
         ps.setString(1, UserLogin.loginId);
         ps.setString(2, dtf.format(trh));
-        ps.setInt(3,secim);
+        ps.setString(3, dtf.format(trh.plusDays(14)));
+        ps.setInt(4,secim);
         ps.executeUpdate();
-
+         iadeTarihi = dtf.format(trh.plusDays(14));
             System.out.println(secim+" Id Numarali Kitabi "+dtf.format(trh)+" Tarihinde aldiniz" +
                     "\nTeslim Tarihiniz : "+dtf.format(trh.plusDays(14))+" dir");
 

@@ -19,7 +19,7 @@ public class Sql_Default_Veriler {
         // 4. Adim: Query calistir
 
         //1.Örnek: "workers" adında bir table oluşturup "worker_id,worker_name, worker_salary" sütunlarını ekleyin.
-        String sql1 = "CREATE TABLE books(kitapId SERIAL PRIMARY KEY,kitapAdi VARCHAR(50), kitapYazari VARCHAR(50),kitapTuru VARCHAR(20),alinaBilirMi boolean,alinmaTarihi VARCHAR(20),alanKisi VARCHAR(60))";
+        String sql1 = "CREATE TABLE books(kitapId SERIAL PRIMARY KEY,kitapAdi VARCHAR(50), kitapYazari VARCHAR(50),kitapTuru VARCHAR(20),alinaBilirMi boolean,alinmaTarihi VARCHAR(20),iadeTarihi VARCHAR(20),alanKisi VARCHAR(60))";
         st.execute(sql1);
 
         st.execute("INSERT INTO books (kitapId,kitapAdi,kitapYazari,kitapTuru,alinaBilirMi,alinmaTarihi,alanKisi) VALUES (DEFAULT,'Hobbit','Tolkien','Fantastik',true,NULL,NULL)");

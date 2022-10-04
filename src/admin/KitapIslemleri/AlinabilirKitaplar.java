@@ -1,5 +1,7 @@
 package admin.KitapIslemleri;
 
+import genel.OpenConnection;
+
 import java.sql.*;
 
 
@@ -14,9 +16,10 @@ public class AlinabilirKitaplar {
     }
 
     public static void kitaplariListele() throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
+       Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
+       // OpenConnection.openConnection();
 
         String alinabilirKitaplariGetir = "SELECT * FROM books WHERE alinabilirmi=true";
         ResultSet alinabilirKitaplar =  st.executeQuery(alinabilirKitaplariGetir);

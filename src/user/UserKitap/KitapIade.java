@@ -4,53 +4,46 @@ import admin.KitapIslemleri.KitapEkle;
 import genel.KitapConst;
 import user.UserIslemleri.UserLogin;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class KitapIade {
-    /*
-    hiç kitap almamışsa iade edebileceğiniz bir kitap yok
-    üst menüye git
 
-    alınmışkitapListte login olan kullanıcının ID'si varsa(son indexte) o kitapları gösterelim.
-
-    daha sonra o kitabı alınmışKitap listesinden silip, alınabilirKitap listesine ekliycez ama sondaki ID'yi yazmıcaz
-     */
     static Scanner scan = new Scanner(System.in);
 
     public static void userKitapIadeMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
-        int sayac = 0;
-        for (KitapConst each : KitapEkle.kitapList) {
-            if (each.alanKisi.contains(UserLogin.loginId)) {
-                System.out.println(each);
-                sayac++;
-            }
+
+        Class.forName("org.postgresql.Driver");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
+        Statement st = con.createStatement();
+      //  String sqlQuery="SELECT * FROM books WHERE kitapid=?";
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM books WHERE alankisi=?");
+        ps.setString(1, UserLogin.loginId);
+      //  ps.executeUpdate();
+        ResultSet kullaniciKitaplari =  ps.executeQuery();
+       // ResultSet alinabilirKitaplar =  st.executeQuery(alinabilirKitaplariGetir);
+        System.out.println("***İade edebileceğiniz  Kitaplar***");
+        while (kullaniciKitaplari.next()) {
+            System.out.println(kullaniciKitaplari.getInt(1)+"-"+
+                    kullaniciKitaplari.getString(2)+"-"+
+                    kullaniciKitaplari.getString(3)+"-"+
+                    kullaniciKitaplari.getString(4));
+
         }
-        if (sayac > 0) {
+
             System.out.print("Iade etmek istediginiz kitabin ID numarasini giriniz : ");
             int secim = scan.nextInt();
-            int indexDegeri = 0;
-            int iadeEdilecekKitap = 0;
 
-            for (KitapConst each : KitapEkle.kitapList) {
+        PreparedStatement ps2 = con.prepareStatement("UPDATE books SET alinabilirmi=true,alinmatarihi=null,iadetarihi=null,9alankisi=null WHERE kitapid=?");
+        ps2.setInt(1,secim);
+            ps2.executeUpdate();
 
-                if (each.kitapId == secim) {
-                    iadeEdilecekKitap = indexDegeri;
-                }
-                indexDegeri++;
-            }
-            KitapEkle.kitapList.get(iadeEdilecekKitap).alanKisi = "-";
-            KitapEkle.kitapList.get(iadeEdilecekKitap).alinaBilirMi = true;
-            KitapEkle.kitapList.get(iadeEdilecekKitap).alinmaTarihi = "-";
             System.out.println("Tesekkurler, kitap basarili sekilde iade edildi");
-            UserIslemMenusu.userKitapIslemMenusuMethodu();
 
-        }else {
-            System.out.println("Iade edebileceginiz kitap yoktur");
+        con.close();
+        st.close();
+//todo iade edeceği kitap yoksa kontrol et
             UserIslemMenusu.userKitapIslemMenusuMethodu();
-        }
-
 
     }
-
 }
