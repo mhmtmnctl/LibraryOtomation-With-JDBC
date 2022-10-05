@@ -1,36 +1,7 @@
 package admin.KullaniciIslemleri;
-
-import genel.KullaniciConst;
-
 import java.sql.*;
-import java.util.Scanner;
-
+import java.util.*;
 public class KullaniciGuncelle {
-    /*
-             öncelikle kullanıcı listesini gösterelim
-             oradan id seçsin
-             Güncellemek istediğiniz kullanıcının ID numarasını gireniz:
-             Listede olan ID seçmeli yoksa uyarı verelim
-             seçip enter'a bastığında seçilen kullanıcı bilgilerini ekrana getirsin.
-             Seçtiği ID'yi silsin.
-             Onun yerine yeni kayıt eklesin.
-
-             [{1,sezer,Can,@mail,1453,5456185290},{2,Ersin,Akun,@gmail,5555,554339},{3,ali,can,@hotmail,4444,553}]
-             kullanıcı[0].
-
-             List<Integer> l1 = new ArrayList<Integer>();
-
-            // Adding elements to object of List interface
-            // Custom inputs
-
-            l1.add(0, 1);
-            l1.add(1, 2);
-
-            // Print the elements inside the object
-            System.out.println(l1);
-
-
-     */
     public static void adminKullaniciGuncelleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         System.out.println("Kullanici Guncelleme Islemleri");
 
@@ -39,7 +10,8 @@ public class KullaniciGuncelle {
         Statement st = con.createStatement();
         String sqlKullanicilar = "SELECT * FROM kullanicilar";
         ResultSet kullanicilar =  st.executeQuery(sqlKullanicilar);
-        //1	"Ersin"	"AKUN"	"ersinakun34@gmail.com"	"1234"	"2126140853"	10
+        ArrayList<String> kullaniciIDList= new ArrayList<>();
+        //todo printf ile düzenli şekilde gösterilsin
         while (kullanicilar.next()) {
             System.out.println(kullanicilar.getInt(1)+"-"+ //id
                     kullanicilar.getString(2)+"-"+//ad
@@ -48,14 +20,29 @@ public class KullaniciGuncelle {
                     kullanicilar.getString(5)+"-"+//şifre
                     kullanicilar.getString(6)+"-"+//tel
                     kullanicilar.getInt(7));//puan
+                    kullaniciIDList.add(String.valueOf(kullanicilar.getInt(1)));
+
         }
-
-
+        System.out.println(kullaniciIDList);
         Scanner scan = new Scanner(System.in);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
-        //todo girilen id yoksa kontrol et
-        int secilenId = scan.nextInt();
-        scan.nextLine();
+        //todo girilen id yoksa ve rakam dışı girerse kontrol et
+        //dönen kayıtların id'lerini bi liste atıp, girilen id orada varmı yokmu konrol edebiliriz...
+
+        String secilenId = scan.next().replaceAll("\\D", "x1");//rakam dışındaki herşey
+        System.out.println(secilenId);
+        while (secilenId.contains("x1")) {
+            System.out.println("Lütfen sadece rakam giriniz!");
+            System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
+            secilenId = scan.next();
+        }
+        while (!kullaniciIDList.contains(secilenId)) {
+            System.out.println(secilenId + " numaralı ID'li bir kullanıcı yoktur. Lütfen tekrar deneyin");
+            System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
+            secilenId = scan.next();
+        }
+
+     scan.nextLine();
         System.out.print("Kullanici adini giriniz : ");
        String kullaniciAdi = scan.nextLine().toUpperCase();
         System.out.print("\nKullanici Soyadini giriniz :");
@@ -78,20 +65,8 @@ public class KullaniciGuncelle {
         System.out.print("\nKullanici telefon numarasi giriniz : ");
         String kullaniciTelNo = scan.next();
 
-
-
         //todo tek tek hangisi güncellenmek isteniyorsa switch case ile kontrol edilip sadece o alan da güncellenebilir.
-        //todo şimdilik hepsini güncelliyoruz
-
-
-
-/*
-UPDATE tedarikciler
-SET firma_ismi = 'Vestel' WHERE vergi_no=102
-
-PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEFAULT,?, ?, ?,?,?,10)");
-        ps.setString(1,kullaniciAdi);
- */
+        // şimdilik hepsini güncelliyoruz
 
         PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciadi=?,kullanicisoyadi=?,kullanicimail=?,kullanicisifre=?,kullanicitelno=? WHERE kullaniciid=?");
         ps.setString(1,kullaniciAdi);
@@ -99,7 +74,7 @@ PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEF
         ps.setString(3,kullaniciMail);
         ps.setString(4,kullaniciSifre);
         ps.setString(5,kullaniciTelNo);
-        ps.setInt(6,secilenId);
+        ps.setInt(6, Integer.parseInt(secilenId));
         ps.executeUpdate();
 
         con.close();
@@ -112,10 +87,8 @@ PreparedStatement ps = con.prepareStatement("INSERT INTO kullanicilar VALUES(DEF
             Thread.sleep(1000);
         }
         System.out.println();
-        //   System.out.println(kullaniciList);
-
         KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
-        //KullaniciEkle.adminKullaniciEkleMethodu();
+
 
 
 
