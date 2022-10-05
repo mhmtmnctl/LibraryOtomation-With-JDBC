@@ -26,8 +26,6 @@ public class KullaniciGuncelle {
         System.out.println(kullaniciIDList);
         Scanner scan = new Scanner(System.in);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
-        //todo girilen id yoksa ve rakam dışı girerse kontrol et
-        //dönen kayıtların id'lerini bi liste atıp, girilen id orada varmı yokmu konrol edebiliriz...
 
         String secilenId = scan.next().replaceAll("\\D", "x1");//rakam dışındaki herşey
         System.out.println(secilenId);
@@ -67,6 +65,9 @@ public class KullaniciGuncelle {
 
         //todo tek tek hangisi güncellenmek isteniyorsa switch case ile kontrol edilip sadece o alan da güncellenebilir.
         // şimdilik hepsini güncelliyoruz
+        //hangi bilgiyi güncellemek istyorsunuz?
+        //1-tel no  2-isim.....
+        //çoklu güncelleme istiyorsa bittikten sonra e/h
 
         PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciadi=?,kullanicisoyadi=?,kullanicimail=?,kullanicisifre=?,kullanicitelno=? WHERE kullaniciid=?");
         ps.setString(1,kullaniciAdi);
@@ -88,9 +89,6 @@ public class KullaniciGuncelle {
         }
         System.out.println();
         KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
-
-
-
 
     }
 
