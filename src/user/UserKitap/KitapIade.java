@@ -34,7 +34,7 @@ public class KitapIade {
             System.out.print("Iade etmek istediginiz kitabin ID numarasini giriniz : ");
             int secim = scan.nextInt();
 
-        PreparedStatement ps2 = con.prepareStatement("UPDATE books SET alinabilirmi=true,alinmatarihi=null,iadetarihi=null,9alankisi=null WHERE kitapid=?");
+        PreparedStatement ps2 = con.prepareStatement("UPDATE books SET alinabilirmi=true,alinmatarihi=null,iadetarihi=null,alankisi=null WHERE kitapid=?");
         ps2.setInt(1,secim);
             ps2.executeUpdate();
 

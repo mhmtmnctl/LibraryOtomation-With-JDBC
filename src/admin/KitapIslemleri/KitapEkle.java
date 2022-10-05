@@ -1,34 +1,36 @@
 package admin.KitapIslemleri;
-
 import genel.KitapConst;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static genel.Renklendirme.ANSI_GREEN;
+import static genel.Renklendirme.ANSI_RESET;
+
 public class KitapEkle {
 
-    public static List<KitapConst> kitapList = new ArrayList<>();
+ //   public static List<KitapConst> kitapList = new ArrayList<>();
 
-    public static int kitapId;
+   // public static int kitapId;
     public static String kitapAdi;
     public static String kitapYazari;
     public static String kitapTuru;
-    public static boolean alinaBilirMi=true;
-    public static String alinmaTarihi;
-    public static String alanKisi="-";
+  //  public static boolean alinaBilirMi=true;
+ //   public static String alinmaTarihi;
+  //  public static String alanKisi="-";
 
     public static void adminKitapEkleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Kitap adini giriniz : ");
-        kitapAdi = scan.nextLine();
+        kitapAdi = scan.nextLine().toUpperCase();
 
-        System.out.print("\nKitap yazarini giriniz :");
-        kitapYazari = scan.nextLine();
+        System.out.print("\nKitap yazarini giriniz :");//todo int değer girilmesin yazar ve türüne... boş da girilmesin
+        kitapYazari = scan.nextLine().toUpperCase();
+
         System.out.print("\nKitap turunu giriniz : ");
-        kitapTuru = scan.nextLine();
+        kitapTuru = scan.nextLine().toUpperCase();
         System.out.println("");
 
         Class.forName("org.postgresql.Driver");
@@ -41,8 +43,11 @@ public class KitapEkle {
         ps.setString(1,kitapAdi);
         ps.setString(2,kitapYazari);
         ps.setString(3,kitapTuru);
-        ps.executeUpdate();
-        System.out.println("kitap eklendi");
+        if ( ps.executeUpdate()==1) {
+            // ps.executeUpdate();
+            System.out.println(ANSI_GREEN +"Kitap başarıyla eklendi..."+ ANSI_RESET);
+        }
+        else System.err.println("Kitap ekleme başarısız...");
 
         KitapMenusu.adminKitapMenusuMethodu();
 

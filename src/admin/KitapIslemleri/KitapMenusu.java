@@ -2,10 +2,8 @@ package admin.KitapIslemleri;
 
 import admin.AdminMenusu;
 import genel.Cıkıs;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class KitapMenusu {
 
     public static void adminKitapMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
@@ -39,9 +37,5 @@ public class KitapMenusu {
                 adminKitapMenusuMethodu();
                 break;
         }
-
-
     }
-
-
 }
