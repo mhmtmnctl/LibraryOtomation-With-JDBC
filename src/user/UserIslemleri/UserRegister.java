@@ -6,9 +6,6 @@ import genel.Renklendirme;
 
 import java.sql.*;
 import java.util.Scanner;
-
-import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
-
 public class UserRegister {
     /*
     kayıtlı değilse önce kayıt olcak
