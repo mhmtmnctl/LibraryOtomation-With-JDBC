@@ -1,24 +1,13 @@
 package admin.KitapIslemleri;
-import genel.KitapConst;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 import static genel.Renklendirme.ANSI_GREEN;
 import static genel.Renklendirme.ANSI_RESET;
-
 public class KitapEkle {
 
- //   public static List<KitapConst> kitapList = new ArrayList<>();
-
-   // public static int kitapId;
     public static String kitapAdi;
     public static String kitapYazari;
     public static String kitapTuru;
-  //  public static boolean alinaBilirMi=true;
- //   public static String alinmaTarihi;
-  //  public static String alanKisi="-";
 
     public static void adminKitapEkleMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
@@ -37,14 +26,12 @@ public class KitapEkle {
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
 
-
         PreparedStatement ps = con.prepareStatement("INSERT INTO books VALUES(DEFAULT,?, ?, ?,true,NULL,NULL,NULL)");
 
         ps.setString(1,kitapAdi);
         ps.setString(2,kitapYazari);
         ps.setString(3,kitapTuru);
         if ( ps.executeUpdate()==1) {
-            // ps.executeUpdate();
             System.out.println(ANSI_GREEN +"Kitap başarıyla eklendi..."+ ANSI_RESET);
         }
         else System.err.println("Kitap ekleme başarısız...");

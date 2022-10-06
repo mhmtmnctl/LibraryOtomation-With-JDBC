@@ -2,7 +2,7 @@ package admin;
 
 import admin.KitapIslemleri.KitapMenusu;
 import admin.KullaniciIslemleri.KullaniciMenusu;
-import genel.Cıkıs;
+import genel.Cikis;
 import genel.IlkGiris;
 import genel.Renklendirme;
 
@@ -40,7 +40,7 @@ public class AdminMenusu {
             case "2":
                 KitapMenusu.adminKitapMenusuMethodu();
                 break;
-            case "0": Cıkıs.cikisMethodu();
+            case "0": Cikis.cikisMethodu();
                 break;
             case "9":
                 IlkGiris.ilkGirisMethodu();

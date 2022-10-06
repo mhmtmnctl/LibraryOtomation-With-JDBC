@@ -30,11 +30,11 @@ public class KullaniciEkle {
         }
 
         System.out.print("Kullanici Soyadini giriniz :");
-        kullaniciSoyadi =  scan.nextLine().toUpperCase().replaceAll("\\d","x1").replaceAll("\\s","");
+        kullaniciSoyadi =  scan.nextLine().toUpperCase().replaceAll("\\d","x1");
         while (kullaniciSoyadi.isEmpty() || kullaniciSoyadi.contains("x1")){
             System.out.println("Kullanıcı soyadı boş olamaz ve rakam içeremez");
             System.out.print("Kullanici Soyadini giriniz :");
-            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1").replaceAll("\\s","");
+            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
         }
         System.out.print("Kullanici mail adresini giriniz : ");
         kullaniciMail = scan.next();
@@ -58,7 +58,7 @@ public class KullaniciEkle {
         kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
         while (!(kullaniciTelNo.length()==10) || kullaniciTelNo.isEmpty() || kullaniciTelNo.contains("x1")){
             System.out.println(kullaniciTelNo);
-            System.out.println("telefon numarası 10 haneli olmalı ve boş olmamalı!");
+            System.out.println("telefon numarası 10 haneli olmalı ve boş olmamalı ve sadece rakam içermeli!");
             System.out.print("Telefon numarasinı 10 haneli olarak giriniz : ");
             kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
         }

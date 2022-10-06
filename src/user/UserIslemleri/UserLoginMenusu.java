@@ -1,6 +1,6 @@
 package user.UserIslemleri;
 
-import genel.Cıkıs;
+import genel.Cikis;
 import genel.IlkGiris;
 
 import java.sql.SQLException;
@@ -34,7 +34,7 @@ public class UserLoginMenusu {
             case "9":
                 IlkGiris.ilkGirisMethodu();
                 break;
-            case "0": Cıkıs.cikisMethodu();
+            case "0": Cikis.cikisMethodu();
                 break;
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");

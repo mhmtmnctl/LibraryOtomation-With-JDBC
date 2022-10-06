@@ -1,7 +1,5 @@
 package user.UserIslemleri;
 
-import admin.KullaniciIslemleri.KullaniciEkle;
-import genel.KullaniciConst;
 import genel.Renklendirme;
 
 import java.sql.*;

@@ -1,25 +1,11 @@
 package admin.KullaniciIslemleri;
-
 import admin.AdminMenusu;
-import genel.Cıkıs;
+import genel.Cikis;
 import genel.Renklendirme;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class KullaniciMenusu {
-    /*
-    Kullanıcı İşlemleri
-    1-Kullanıcı ekle
-    2-Kullanıcı Sil
-    3-Kullanıcı Güncelle
-    9-Üst Menü
-    0-Çıkış
 
-    Burda seçim yaptıralım. Hatalı girişleri kontrol edelim
-
-
-     */
     public static void adminKullaniciIslemleriMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
@@ -29,7 +15,6 @@ public class KullaniciMenusu {
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
         String secim = scan.next();
-
 
         switch (secim){
             case "1": KullaniciEkle.adminKullaniciEkleMethodu();
@@ -41,7 +26,7 @@ public class KullaniciMenusu {
             case "9":
                 AdminMenusu.adminMenusuMethodu();
                 break;
-            case "0": Cıkıs.cikisMethodu();
+            case "0": Cikis.cikisMethodu();
                 break;
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");

@@ -1,6 +1,6 @@
 package user.UserKitap;
 
-import genel.Cıkıs;
+import genel.Cikis;
 import user.UserIslemleri.UserLoginMenusu;
 
 import java.sql.SQLException;
@@ -36,7 +36,7 @@ public class UserIslemMenusu {
             case "9":
                 UserLoginMenusu.userLoginMenusuMethodu();
                 break;
-            case "0": Cıkıs.cikisMethodu();
+            case "0": Cikis.cikisMethodu();
                 break;
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");

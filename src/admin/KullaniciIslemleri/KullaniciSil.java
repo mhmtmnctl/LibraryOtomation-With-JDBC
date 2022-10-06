@@ -1,8 +1,4 @@
 package admin.KullaniciIslemleri;
-
-import admin.KitapIslemleri.KitapMenusu;
-import genel.KullaniciConst;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +6,6 @@ import java.util.Scanner;
 
 public class KullaniciSil {
 
-    /*
-         öncelikle kullanıcı listesini gösterelim
-         oradan id seçsin
-         Silmek istediğiniz kullanıcının ID numarasını gireniz:
-         Listede olan ID seçmeli yoksa uyarı verelim
-         seçip enter'a bastığında seçilen kullanıcı bilgilerini ekrana getirsin.
-         sout(Seçilen kullanıcıyı silmek istediğinize emin misiniz e/h)
-        e derse listten silsin  silmeden önce Silinenler listesi olsun. oraya ekleyelim
-        sildikten sonra da  kullanıcıMenüsüne gitsin
-         h derse silmeden kullanıcıMenüsüne gitsin.
-         //kullanıcı yoksa kontrol edelim. önce ekletelim
-
-     */
     public static List<Object> silinenlerListesi = new ArrayList<>(); //todo Listler classına taşımaya çalışalım
     public static void adminKullaniciSilMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
@@ -43,7 +26,6 @@ public class KullaniciSil {
                     kullanicilar.getInt(7));//puan
         }
         Scanner scan = new Scanner(System.in);
-       // System.out.println(KullaniciEkle.kullaniciList);
         System.out.print("Silmek istediğiniz kullanıcının  ID numarısını giriniz :");
         int secilenId = scan.nextInt();
 
@@ -53,7 +35,6 @@ public class KullaniciSil {
         PreparedStatement ps = con.prepareStatement(sqlKullaniciSilQuery);
 
         ps.setInt(1,secilenId);
-        //  System.out.println();
         ps.executeUpdate();
         System.out.println(secilenId+ " id numaralı kullanıcı silindi");
 
@@ -64,6 +45,5 @@ public class KullaniciSil {
             KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
 
         }
-
     }
 

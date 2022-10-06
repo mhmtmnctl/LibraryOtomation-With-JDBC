@@ -23,12 +23,10 @@ public class KullaniciGuncelle {
                     kullaniciIDList.add(String.valueOf(kullanicilar.getInt(1)));
 
         }
-        System.out.println(kullaniciIDList);
         Scanner scan = new Scanner(System.in);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
 
         String secilenId = scan.next().replaceAll("\\D", "x1");//rakam dışındaki herşey
-        System.out.println(secilenId);
         while (secilenId.contains("x1")) {
             System.out.println("Lütfen sadece rakam giriniz!");
             System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
@@ -40,11 +38,15 @@ public class KullaniciGuncelle {
             secilenId = scan.next();
         }
 
-     scan.nextLine();
-        System.out.print("Kullanici adini giriniz : ");
-       String kullaniciAdi = scan.nextLine().toUpperCase();
+
         System.out.print("\nKullanici Soyadini giriniz :");
-      String  kullaniciSoyadi = scan.next().toUpperCase();
+      String  kullaniciSoyadi = scan.next().toUpperCase().replaceAll("\\d","x1");
+        while (kullaniciSoyadi.isEmpty() || kullaniciSoyadi.contains("x1")){
+            System.out.println("Kullanıcı soyadı boş olamaz ve rakam içeremez");
+            System.out.print("Kullanici Soyadini giriniz :");
+            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
+        }
+
         System.out.print("\nKullanici mail adresini giriniz : ");
       String  kullaniciMail = scan.next();
         while (!(kullaniciMail.contains("@") && kullaniciMail.contains(".")))
@@ -61,34 +63,70 @@ public class KullaniciGuncelle {
         }
 
         System.out.print("\nKullanici telefon numarasi giriniz : ");
-        String kullaniciTelNo = scan.next();
+        String kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
+        while (!(kullaniciTelNo.length()==10) || kullaniciTelNo.isEmpty() || kullaniciTelNo.contains("x1")){
+            System.out.println(kullaniciTelNo);
+            System.out.println("telefon numarası 10 haneli olmalı ve boş olmamalı ve sadece rakam içermeli!");
+            System.out.print("Telefon numarasinı 10 haneli olarak giriniz : ");
+            kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
+        }
+        System.out.println("1-Kullanıcı Adı\n2-Kullanıcı Soyadı\n3-Kullanıcı Maili\n4-Kullanıcı Şifresi\n5-Kullanıcı Tel No");
+        System.out.println("Güncellemek istediğiniz alanın sıra numarasını giriniz : ");
+        int siraNo= scan.nextInt();
+        switch (siraNo){
+            case 1:
+                PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciadi=? WHERE kullaniciid=?");
+                System.out.print("Kullanici adini giriniz : ");
+                String kullaniciAdi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
+                while (kullaniciAdi.isEmpty() || kullaniciAdi.contains("x1")){
+                    System.out.println("Kullanıcı adı boş olamaz ve rakam içeremez");
+                    System.out.print("Kullanici adini giriniz : ");
+                    kullaniciAdi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
+                }
+                ps.setString(1,kullaniciAdi);
+                ps.setInt(2, Integer.parseInt(secilenId));
+                ps.executeUpdate();
+                //todo clean cod olması için metoddan çağıralım. switch case sade olsun
+                System.out.println("İşlem başarılı...\n");
+                System.out.print("Devam etmek istiyor musunuz?(e/h):");
+                String devamMi= scan.next().toLowerCase();
+                if (devamMi.equals("e")){
+                    //todo bunların hepsini metodda yapalım, burada metodu çağıralım.
+                }
+                else if(devamMi.equals("h")){
+                    System.out.println(secilenId +" id numaralı kullanıcı güncellendi");
+                    System.out.println("İşlem başarılı...\n");
+                    System.out.print("Üst menuye yonlendiriliyorunuz");
+                    for (int i = 3; i >= 1; i--) {
+                        System.out.print(".");
+                        Thread.sleep(1000);
+                    }
+                    System.out.println();
+                    KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
+                }
+                else{
+                    System.out.println("Yanlış giriş yaptınız");
+                    //todo tekrar metoda gönder
+                }
+                break;
 
-        //todo tek tek hangisi güncellenmek isteniyorsa switch case ile kontrol edilip sadece o alan da güncellenebilir.
-        // şimdilik hepsini güncelliyoruz
-        //hangi bilgiyi güncellemek istyorsunuz?
-        //1-tel no  2-isim.....
-        //çoklu güncelleme istiyorsa bittikten sonra e/h
 
-        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciadi=?,kullanicisoyadi=?,kullanicimail=?,kullanicisifre=?,kullanicitelno=? WHERE kullaniciid=?");
-        ps.setString(1,kullaniciAdi);
-        ps.setString(2,kullaniciSoyadi);
-        ps.setString(3,kullaniciMail);
-        ps.setString(4,kullaniciSifre);
-        ps.setString(5,kullaniciTelNo);
-        ps.setInt(6, Integer.parseInt(secilenId));
-        ps.executeUpdate();
+
+
+
+
+
+
+
+        }
+
+
+
+
+
 
         con.close();
         st.close();
-        System.out.println(secilenId +" id numaralı kullanıcı güncellendi");
-        System.out.println("İşlem başarılı...\n");
-        System.out.print("Üst menuye yonlendiriliyorunuz");
-        for (int i = 3; i >= 1; i--) {
-            System.out.print(".");
-            Thread.sleep(1000);
-        }
-        System.out.println();
-        KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
 
     }
 

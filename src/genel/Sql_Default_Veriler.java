@@ -30,7 +30,7 @@ public class Sql_Default_Veriler {
 
         String sql2 = "CREATE TABLE kullanicilar(kullaniciId SERIAL PRIMARY KEY,kullaniciAdi VARCHAR(20), kullaniciSoyadi VARCHAR(20),kullaniciMail VARCHAR(40),kullaniciSifre VARCHAR(12),kullaniciTelNo VARCHAR(12),kullaniciPuan INT)";
         st.execute(sql2);
-
+        //todo girilen veriler formata uygun şekilde girilmesi lazım(büyük harf, telno 10 karakter gibi)
         st.execute("INSERT INTO kullanicilar(kullaniciId,kullaniciAdi,kullaniciSoyadi,kullaniciMail,kullaniciSifre,kullaniciTelNo,kullaniciPuan) VALUES (DEFAULT,'Ersin','AKUN','ersinakun34@gmail.com','1111','2126140853',10)");
         st.execute("INSERT INTO kullanicilar(kullaniciId,kullaniciAdi,kullaniciSoyadi,kullaniciMail,kullaniciSifre,kullaniciTelNo,kullaniciPuan) VALUES (DEFAULT,'Sezer','ERCAN','sercan@gmail.com','1111','2121231212',10)");
         st.execute("INSERT INTO kullanicilar(kullaniciId,kullaniciAdi,kullaniciSoyadi,kullaniciMail,kullaniciSifre,kullaniciTelNo,kullaniciPuan) VALUES (DEFAULT,'Emin','CATAL','ecatal@gmail.com','1111','2581231223',10)");

@@ -1,7 +1,7 @@
 package admin.KitapIslemleri;
 
 import admin.AdminMenusu;
-import genel.Cıkıs;
+import genel.Cikis;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class KitapMenusu {
@@ -30,7 +30,7 @@ public class KitapMenusu {
             case "9":
                 AdminMenusu.adminMenusuMethodu();
                 break;
-            case "0": Cıkıs.cikisMethodu();
+            case "0": Cikis.cikisMethodu();
                 break;
             default:
                 System.out.println("Lütfen geçerli bir giriş yapınız!");
