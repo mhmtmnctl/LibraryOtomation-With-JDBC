@@ -1,22 +1,10 @@
 package user.UserIslemleri;
-
 import user.UserKitap.UserIslemMenusu;
-
 import java.sql.*;
 import java.util.Scanner;
 
-//import static admin.KullaniciIslemleri.KullaniciEkle.kullaniciList;
 
 public class UserLogin {
-    /*
-daha önceden kayıt olmuş
-login olcak kullanıcı adı şifresini gircek.
-
-giriş yaptıktan sonra UserIslemMenusu açılsın.
-yanlış giriş olursa tekrar girsin veya çıkış koyalım
-
-
- */
 
     public static String sifre;
     public static String mail;
@@ -37,17 +25,6 @@ yanlış giriş olursa tekrar girsin veya çıkış koyalım
        System.out.println();
        System.out.print("Şifrenizi giriniz : ");
         sifre = scan.next();
-
- //      for (KullaniciConst each: KullaniciEkle.kullaniciList) {
-//
- //          if (each.kullaniciMail.equals(mail)&& (each.kullaniciSifre.equals(sifre)) ){
- //              loginId= String.valueOf(each.kullaniciId);
-//
- //              System.out.println("Tebrikler giriş yaptınız... ");
- //              UserIslemMenusu.userKitapIslemMenusuMethodu();
-//
- //          }
- //      }
         String sqlKullanicilariGetir = "SELECT * FROM kullanicilar";
         ResultSet users = st.executeQuery(sqlKullanicilariGetir);
         while (users.next()){

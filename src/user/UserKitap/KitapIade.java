@@ -14,12 +14,9 @@ public class KitapIade {
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
-      //  String sqlQuery="SELECT * FROM books WHERE kitapid=?";
         PreparedStatement ps = con.prepareStatement("SELECT * FROM books WHERE alankisi=?");
         ps.setString(1, UserLogin.loginId);
-      //  ps.executeUpdate();
         ResultSet kullaniciKitaplari =  ps.executeQuery();
-       // ResultSet alinabilirKitaplar =  st.executeQuery(alinabilirKitaplariGetir);
         System.out.println("***İade edebileceğiniz  Kitaplar***");
         while (kullaniciKitaplari.next()) {
             System.out.println(kullaniciKitaplari.getInt(1)+"-"+

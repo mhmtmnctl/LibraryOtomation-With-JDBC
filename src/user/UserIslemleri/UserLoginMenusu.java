@@ -7,14 +7,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserLoginMenusu {
-    /*
-    Kullanıcı Giriş Ekranı
-    1-Login  -->UserLogine göndercez
-    2-Register --> UserRegister'a göndercez
-    9-Ust Menü IlkGirişe gönderelim
-    0-çıkış
-
-     */
     public static void userLoginMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println("***Kullanıcı Menüsü***");

@@ -13,13 +13,6 @@ public class KitapAl {
 
     public static void userKitapAlMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
-
-       // System.out.println("mail adresi "+UserLogin.mail);
-       // AlinabilirKitaplar.adminAlinabilirKitaplarMethodu();
-       // System.out.println("AlinabilirKitaplar.alinabilirKitapListesi = " + AlinabilirKitaplar.alinabilirKitapListesi);
-
-
-       // System.out.println(KitapEkle.kitapList);
         System.out.println("Alabileceğiniz kitaplar aşağıdadır");
         AlinabilirKitaplar.kitaplariListele();
 

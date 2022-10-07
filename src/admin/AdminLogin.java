@@ -1,22 +1,9 @@
 package admin;
-
-import admin.KullaniciIslemleri.KullaniciEkle;
 import genel.Renklendirme;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class AdminLogin {
 
-    /*
-    GİRİŞ EKRANI
-    Kullanıcı ADı : sabit  veritabanından
-    Şifre         : sabit veritabanından
-
-    ilk etapta 1 1 seçebilirz.
-    en son şifre kontrolü olabilir
-    login olduğunda adminMenusune gitsin.
-     */
     public static void adminLoginMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         String adminAdi = "1";
@@ -38,13 +25,5 @@ public class AdminLogin {
             System.out.println("Şifre veya kullanıcı adı hatalı,tekrar deneyiniz");
             adminLoginMethodu();
         }
-
-
-
-
     }
-
-
-
-
 }

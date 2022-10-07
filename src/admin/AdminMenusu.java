@@ -1,27 +1,13 @@
 package admin;
-
 import admin.KitapIslemleri.KitapMenusu;
 import admin.KullaniciIslemleri.KullaniciMenusu;
 import genel.Cikis;
 import genel.IlkGiris;
 import genel.Renklendirme;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AdminMenusu {
-    /*
-        ***Admin Menüsü***
-        1-Kullanıcı İşlemleri
-        2-Kitap İşlemleri
-        0-Çıkış
-        *
-         switch-case ile bakalım
-         1 ise KullanıcıMenüsü ne gitsin
-         2- ise KitapMenusune gitsin
-         0- çıkış
-         yanlış giriş yaparsa da uyarı verip tekrar admin menüsünü çağıralım.
-     */
     public static void adminMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
         System.out.println(Renklendirme.ANSI_BLUE + "========================================" + Renklendirme.ANSI_RESET);
@@ -51,7 +37,6 @@ public class AdminMenusu {
                 adminMenusuMethodu();
                 break;
         }
-
 
     }
 

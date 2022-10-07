@@ -7,14 +7,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserIslemMenusu {
-    /*
-    Kullanıcı İşlemleri
-    1-Kitap Al
-    2-Kitap İade
-    3-Kitaplarım(özet)
-    0-çıkış
-
-     */
 
     public static void userKitapIslemMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 

@@ -7,18 +7,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class UserKitapDurumu extends KitapAl {
-    /*
-                 Kitap Durumları
 
-    Alınmış Kitaplar    Alınma Tarihi   İade Durumu
-       JavaBook         01.08.2022      İade edildi/edilmediyse iade edilmesine kaç gün kaldı/süresi geçtiyse Acil teslim edin
-
-   //    eskiyi gösteremiyoruz çünkü database yok.
-       şuan okuduğu kitabı gösterelim.
-
-       çıkış/üstmenü için 0'a basınız.???
-
-     */
     public static void userKitapDurumuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
         String tercih;
         Scanner scan = new Scanner(System.in);
@@ -49,22 +38,13 @@ public class UserKitapDurumu extends KitapAl {
         ps.setString(1, UserLogin.loginId);
         ResultSet kullaniciKitaplari =  ps.executeQuery();
         while (kullaniciKitaplari.next()) {
-            /*
-            System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Teslim tarihi");
-             */
             System.out.println(kullaniciKitaplari.getString(2)+"              -"+
                     //todo db de iade tarihi tutmadan dtf ile yapılabilir mi
-                    //+dtf.format(trh.plusDays(14))
                     kullaniciKitaplari.getString(6)+"              -"+
                     kullaniciKitaplari.getString(7));
-                   // kullaniciKitaplari.getString(4));
-
-
         }
         con.close();
         st.close();
-
-
 
     }
 
