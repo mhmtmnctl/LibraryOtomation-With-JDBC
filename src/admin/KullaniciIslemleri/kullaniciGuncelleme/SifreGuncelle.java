@@ -7,9 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SoyadiGuncelle {
-
-    public static void soyadiGuncelle() throws SQLException, ClassNotFoundException, InterruptedException {
+public class SifreGuncelle {
+    public static void sifreGuncelle() throws ClassNotFoundException, SQLException, InterruptedException {
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
@@ -43,16 +42,15 @@ public class SoyadiGuncelle {
             secilenId = scan.next();
         }
 
-        System.out.print("\nKullanici Soyadini giriniz :");
-        String  kullaniciSoyadi = scan.next().toUpperCase().replaceAll("\\d","x1");
-        while (kullaniciSoyadi.isEmpty() || kullaniciSoyadi.contains("x1")){
-            System.out.println("Kullanıcı soyadı boş olamaz ve rakam içeremez");
-            System.out.print("Kullanici Soyadini giriniz :");
-            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
-        }
+        System.out.print("\nKullanici sifre giriniz (sifre en az 4 karakter uzunlugunda olmalidir) : ");
+      String  kullaniciSifre = scan.next();
 
-        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullanicisoyadi=? WHERE kullaniciid=?");
-        ps.setString(1, kullaniciSoyadi);
+        while(kullaniciSifre.length()<4 || kullaniciSifre.contains(" ")) {
+            System.out.println("sifre en az 4 karakter uzunlugunda olmalidir ve bosluk icermemelidir");
+            kullaniciSifre = scan.next();
+        }
+        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciSifre=? WHERE kullaniciid=?");
+        ps.setString(1, kullaniciSifre);
         ps.setInt(2, Integer.parseInt(secilenId));
         ps.executeUpdate();
 
@@ -83,11 +81,7 @@ public class SoyadiGuncelle {
         st.close();
         KullaniciGuncelle.adminKullaniciGuncelleMethodu();
 
-        //todo liste tekrar tekrar doluyor mu? öyleyse metod sonunda listeyi temizle
-
-
 
 
     }
-
 }

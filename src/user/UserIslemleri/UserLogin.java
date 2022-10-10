@@ -3,9 +3,7 @@ import user.UserKitap.UserIslemMenusu;
 import java.sql.*;
 import java.util.Scanner;
 
-
 public class UserLogin {
-
     public static String sifre;
     public static String mail;
 
@@ -36,7 +34,6 @@ public class UserLogin {
             }
 
         }
-
        System.out.print("Kullanıcı adı veya şifreniz hatalı, \ntekrar denemek ister misiniz? (E / H): ");
                String secim = scan.next();
                if (secim.equalsIgnoreCase("E")){

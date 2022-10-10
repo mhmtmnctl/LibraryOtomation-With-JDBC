@@ -15,7 +15,7 @@ public class UserKitapDurumu extends KitapAl {
             System.out.println("Guncel kitap durumunuz :");
             System.out.printf("-------------------------------------------%n");
             System.out.printf("| %-10s | %-12s | %6s |%n", "Aldiginiz kitaplar", " Alinma tarihi", "  Teslim tarihi");
-           // System.out.printf();
+
             alinmisKitap();
             System.out.printf("-------------------------------------------%n");
             System.out.print("Ust menuye gitmek icin 9'a basiniz :");

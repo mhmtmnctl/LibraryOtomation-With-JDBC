@@ -33,7 +33,5 @@ public class KullaniciMenusu {
                 adminKullaniciIslemleriMenusuMethodu();
                 break;
         }
-
-
     }
 }

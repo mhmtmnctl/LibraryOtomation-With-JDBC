@@ -7,9 +7,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SoyadiGuncelle {
+public class TelefonGuncelle {
 
-    public static void soyadiGuncelle() throws SQLException, ClassNotFoundException, InterruptedException {
+    public static void telefonuGuncelle() throws SQLException, ClassNotFoundException, InterruptedException {
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
@@ -42,17 +42,17 @@ public class SoyadiGuncelle {
             System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
             secilenId = scan.next();
         }
-
-        System.out.print("\nKullanici Soyadini giriniz :");
-        String  kullaniciSoyadi = scan.next().toUpperCase().replaceAll("\\d","x1");
-        while (kullaniciSoyadi.isEmpty() || kullaniciSoyadi.contains("x1")){
-            System.out.println("Kullanıcı soyadı boş olamaz ve rakam içeremez");
-            System.out.print("Kullanici Soyadini giriniz :");
-            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
+                System.out.print("\nKullanici telefon numarasi giriniz : ");
+        String kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
+        while (!(kullaniciTelNo.length()==10) || kullaniciTelNo.isEmpty() || kullaniciTelNo.contains("x1")) {
+            System.out.println(kullaniciTelNo);
+            System.out.println("telefon numarası 10 haneli olmalı ve boş olmamalı ve sadece rakam içermeli!");
+            System.out.print("Telefon numarasinı 10 haneli olarak giriniz : ");
+            kullaniciTelNo = scan.next().replaceAll("\\s", "").replaceAll("\\D", "x1");
         }
 
-        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullanicisoyadi=? WHERE kullaniciid=?");
-        ps.setString(1, kullaniciSoyadi);
+        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullaniciTelNo=? WHERE kullaniciid=?");
+        ps.setString(1, kullaniciTelNo);
         ps.setInt(2, Integer.parseInt(secilenId));
         ps.executeUpdate();
 
@@ -83,11 +83,5 @@ public class SoyadiGuncelle {
         st.close();
         KullaniciGuncelle.adminKullaniciGuncelleMethodu();
 
-        //todo liste tekrar tekrar doluyor mu? öyleyse metod sonunda listeyi temizle
-
-
-
-
     }
-
 }

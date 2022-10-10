@@ -7,9 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SoyadiGuncelle {
+public class MailGuncelle {
 
-    public static void soyadiGuncelle() throws SQLException, ClassNotFoundException, InterruptedException {
+    public static void mailGuncelle() throws ClassNotFoundException, SQLException, InterruptedException {
+        Scanner scan = new Scanner(System.in);
+
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
@@ -27,8 +29,6 @@ public class SoyadiGuncelle {
                     kullanicilar.getInt(7));//puan
             kullaniciIDList.add(String.valueOf(kullanicilar.getInt(1)));
         }
-
-        Scanner scan = new Scanner(System.in);
         System.out.print("Guncellemek istediğiniz kullanıcının  ID numarısını giriniz :");
 
         String secilenId = scan.next().replaceAll("\\D", "x1");//rakam dışındaki herşey
@@ -43,16 +43,18 @@ public class SoyadiGuncelle {
             secilenId = scan.next();
         }
 
-        System.out.print("\nKullanici Soyadini giriniz :");
-        String  kullaniciSoyadi = scan.next().toUpperCase().replaceAll("\\d","x1");
-        while (kullaniciSoyadi.isEmpty() || kullaniciSoyadi.contains("x1")){
-            System.out.println("Kullanıcı soyadı boş olamaz ve rakam içeremez");
-            System.out.print("Kullanici Soyadini giriniz :");
-            kullaniciSoyadi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
+
+
+                System.out.print("\nKullanici mail adresini giriniz : ");
+      String  kullaniciMail = scan.next();
+        while (!(kullaniciMail.contains("@") && kullaniciMail.contains(".")))
+        {
+            System.out.println("Lutfen gecerli bir mail adresi giriniz ...");
+            kullaniciMail=scan.next();
         }
 
-        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullanicisoyadi=? WHERE kullaniciid=?");
-        ps.setString(1, kullaniciSoyadi);
+        PreparedStatement ps = con.prepareStatement("UPDATE kullanicilar SET kullanicimail=? WHERE kullaniciid=?");
+        ps.setString(1, kullaniciMail);
         ps.setInt(2, Integer.parseInt(secilenId));
         ps.executeUpdate();
 
@@ -83,11 +85,5 @@ public class SoyadiGuncelle {
         st.close();
         KullaniciGuncelle.adminKullaniciGuncelleMethodu();
 
-        //todo liste tekrar tekrar doluyor mu? öyleyse metod sonunda listeyi temizle
-
-
-
-
     }
-
 }

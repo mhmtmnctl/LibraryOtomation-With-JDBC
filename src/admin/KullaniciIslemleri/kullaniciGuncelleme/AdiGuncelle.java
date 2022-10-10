@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class AdiGuncelle {
     public static void adiGuncelle() throws SQLException, ClassNotFoundException, InterruptedException {
+
+        //todo tekrar eden kodlar bir metoddan çağırılabilir. parametre ile gerekli bilgileri gönderebiliriz
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
@@ -59,6 +61,7 @@ public class AdiGuncelle {
         while (devamMi.equals("e") || devamMi.equals("h"))
         {
             if (devamMi.equals("e")) {
+                System.out.println(secilenId + " id numaralı kullanıcı güncellendi");
                 KullaniciGuncelle.adminKullaniciGuncelleMethodu();
 
             } else  {
