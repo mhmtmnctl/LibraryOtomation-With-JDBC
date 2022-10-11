@@ -1,4 +1,6 @@
 package admin.KitapIslemleri;
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.*;
 import java.util.Scanner;
 import static genel.Renklendirme.ANSI_GREEN;
@@ -15,7 +17,7 @@ public class KitapEkle {
         System.out.print("Kitap adini giriniz : ");
         kitapAdi = scan.nextLine().toUpperCase();
 
-        System.out.print("\nKitap yazarini giriniz :");//todo int değer girilmesin yazar ve türüne... boş da girilmesin
+        System.out.print("\nKitap yazarini giriniz :");
         kitapYazari = scan.nextLine().toUpperCase();
 
         System.out.print("\nKitap turunu giriniz : ");

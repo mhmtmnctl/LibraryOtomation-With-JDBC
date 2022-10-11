@@ -10,7 +10,7 @@ public class KitapSil {
             Scanner scan = new Scanner(System.in);
             //todo düzenli olması için kitapid----kitap adı--- şeklinde printf ile düzenle boşluk kontrol et
         //todo olmayan id girildiğinde kontrol et
-        //    AlinabilirKitaplar.kitaplariListele();
+        //AlinabilirKitaplar.kitaplariListele();
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/LibraryOtomation", "postgres", "1234");
         Statement st = con.createStatement();
