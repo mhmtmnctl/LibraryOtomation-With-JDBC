@@ -1,6 +1,8 @@
 package admin.KullaniciIslemleri;
 import genel.KullaniciKontrol;
 import genel.Renklendirme;
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.*;
 public class KullaniciEkle {
    public static int kullaniciId;
@@ -40,5 +42,6 @@ public class KullaniciEkle {
         }
         KullaniciMenusu.adminKullaniciIslemleriMenusuMethodu();
         System.out.println();
+
     }
 }
