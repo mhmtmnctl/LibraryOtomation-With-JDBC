@@ -2,10 +2,8 @@ package user.UserIslemleri;
 
 import genel.Cikis;
 import genel.IlkGiris;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class UserLoginMenusu {
     public static void userLoginMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 
@@ -15,7 +13,6 @@ public class UserLoginMenusu {
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
         String secim = scan.next();
-
 
         switch (secim){
             case "1":
@@ -33,8 +30,5 @@ public class UserLoginMenusu {
                 userLoginMenusuMethodu();
                 break;
         }
-
-
     }
-
 }

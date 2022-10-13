@@ -1,5 +1,7 @@
 package genel;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 public class KullaniciKontrol {
@@ -18,6 +20,7 @@ public class KullaniciKontrol {
         }
 
     public static String soyIsimKontrol(){
+
         System.out.print("Kullanici soyadını giriniz : ");
 
         String kullaniciSoyAdi = scan.nextLine().toUpperCase().replaceAll("\\d","x1");
@@ -57,7 +60,7 @@ public class KullaniciKontrol {
     public static String telNoKontrol(){
         System.out.print("Telefon numarasinı 10 haneli olarak giriniz : ");
        String kullaniciTelNo = scan.next().replaceAll("\\s","").replaceAll("\\D","x1");
-        while (!(kullaniciTelNo.length()==10) || kullaniciTelNo.isEmpty() || kullaniciTelNo.contains("x1")){
+        while (kullaniciTelNo.length() != 10 || kullaniciTelNo.contains("x1")){
             System.out.println(kullaniciTelNo);
             System.err.println("telefon numarası 10 haneli olmalı ve boş olmamalı ve sadece rakam içermeli!");
             System.out.print("Telefon numarasinı 10 haneli olarak giriniz : ");
@@ -65,5 +68,4 @@ public class KullaniciKontrol {
         }
         return kullaniciTelNo;
     }
-
 }

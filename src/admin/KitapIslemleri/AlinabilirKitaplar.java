@@ -19,7 +19,6 @@ public class AlinabilirKitaplar {
                     alinabilirKitaplar.getString(3)+"-"+
                     alinabilirKitaplar.getString(4));
         }
-
         con.close();
         st.close();
     }

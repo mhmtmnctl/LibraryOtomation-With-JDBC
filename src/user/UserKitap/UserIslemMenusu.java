@@ -2,10 +2,8 @@ package user.UserKitap;
 
 import genel.Cikis;
 import user.UserIslemleri.UserLoginMenusu;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class UserIslemMenusu {
 
     public static void userKitapIslemMenusuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
@@ -16,7 +14,6 @@ public class UserIslemMenusu {
         Scanner scan = new Scanner(System.in);
         System.out.print("Gitmek istediğiniz menünün sıra numarasını giriniz :");
         String secim = scan.next();
-
 
         switch (secim){
             case "1": KitapAl.userKitapAlMethodu();
@@ -35,7 +32,5 @@ public class UserIslemMenusu {
                 userKitapIslemMenusuMethodu();
                 break;
         }
-
-
     }
 }

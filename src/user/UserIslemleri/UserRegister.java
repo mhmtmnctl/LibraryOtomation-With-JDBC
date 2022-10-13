@@ -6,13 +6,13 @@ import java.sql.*;
 import java.util.Scanner;
 public class UserRegister {
 
-    public static int kullaniciId;
+   // public static int kullaniciId;
     public static String kullaniciAdi;
     public static String kullaniciSoyadi;
     public static String kullaniciMail;
     public static String kullaniciSifre;
     public static String kullaniciTelNo;
-    public static int kullaniciPuan = 10;
+   // public static int kullaniciPuan = 10;
 
    public static void userRegisterMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
 

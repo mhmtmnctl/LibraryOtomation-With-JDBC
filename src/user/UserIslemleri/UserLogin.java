@@ -2,11 +2,9 @@ package user.UserIslemleri;
 import user.UserKitap.UserIslemMenusu;
 import java.sql.*;
 import java.util.Scanner;
-
 public class UserLogin {
     public static String sifre;
     public static String mail;
-
     public static String loginId;
 
     public UserLogin() throws SQLException {

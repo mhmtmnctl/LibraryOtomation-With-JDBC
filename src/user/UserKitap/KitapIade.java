@@ -5,7 +5,6 @@ import user.UserIslemleri.UserLogin;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class KitapIade {
 
     static Scanner scan = new Scanner(System.in);
@@ -52,11 +51,6 @@ public class KitapIade {
                 UserIslemMenusu.userKitapIslemMenusuMethodu();
             }
         }
-
-
-
-
             UserIslemMenusu.userKitapIslemMenusuMethodu();
-
     }
 }

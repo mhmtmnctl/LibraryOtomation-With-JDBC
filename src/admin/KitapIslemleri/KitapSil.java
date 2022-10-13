@@ -8,7 +8,6 @@ public class KitapSil {
 
             System.out.println("***Kitap Silme Islemleri***");
             Scanner scan = new Scanner(System.in);
-            //todo düzenli olması için kitapid----kitap adı--- şeklinde printf ile düzenle boşluk kontrol et
         //todo olmayan id girildiğinde kontrol et
         //AlinabilirKitaplar.kitaplariListele();
         Class.forName("org.postgresql.Driver");
@@ -43,7 +42,6 @@ public class KitapSil {
                     System.out.println("Lütfen doğru giriş yapınız!!!");
                     KitapMenusu.adminKitapMenusuMethodu();
                 }
-
                 con.close();
                 st.close();
 

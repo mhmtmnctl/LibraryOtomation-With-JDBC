@@ -1,11 +1,7 @@
 package user.UserKitap;
-
 import user.UserIslemleri.UserLogin;
-
 import java.sql.*;
-
 import java.util.Scanner;
-
 public class UserKitapDurumu extends KitapAl {
 
     public static void userKitapDurumuMethodu() throws InterruptedException, SQLException, ClassNotFoundException {
@@ -38,14 +34,9 @@ public class UserKitapDurumu extends KitapAl {
         ps.setString(1, UserLogin.loginId);
         ResultSet kullaniciKitaplari =  ps.executeQuery();
         while (kullaniciKitaplari.next()) {
-            System.out.println(kullaniciKitaplari.getString(2)+"              -"+
-                    //todo db de iade tarihi tutmadan dtf ile yapılabilir mi
-                    kullaniciKitaplari.getString(6)+"              -"+
-                    kullaniciKitaplari.getString(7));
+            System.out.printf(" %-21s  %-19s  %-17s %n",kullaniciKitaplari.getString(2), kullaniciKitaplari.getString(6), kullaniciKitaplari.getString(7));
         }
         con.close();
         st.close();
-
     }
-
 }

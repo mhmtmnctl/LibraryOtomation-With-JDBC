@@ -1,12 +1,9 @@
 package admin.KitapIslemleri;
-import org.jetbrains.annotations.NotNull;
-
 import java.sql.*;
 import java.util.Scanner;
 import static genel.Renklendirme.ANSI_GREEN;
 import static genel.Renklendirme.ANSI_RESET;
 public class KitapEkle {
-
     public static String kitapAdi;
     public static String kitapYazari;
     public static String kitapTuru;
